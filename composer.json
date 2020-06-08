@@ -1,0 +1,19 @@
+{
+    "name": "lezxb/cms",
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    },
+
+     "autoload": {
+       "classmap": [
+         "classes"
+       ]
+     },
+
+    "authors": [
+        {
+            "name": "Leslie Papp",
+            "email": "lezz@freemail.hu"
+        }
+    ]
+}
