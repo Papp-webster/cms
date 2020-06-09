@@ -101,7 +101,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 </ul>			
 			
 			
-		</ul>
+		
 	</div>
 </nav>
 
