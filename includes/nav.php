@@ -66,6 +66,11 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
               </div>
             </form>
 		<ul class="nav navbar-nav navbar-right ml-auto">
+    <li>
+        <a class="navbar-brand" href="#">
+          <i class="fab fa-facebook-square"></i> facebook
+          </a>
+      </li>
         <?php if (isset($_SESSION['user_role'])): ?>
 
 <?php if (empty($_SESSION['user_image'])): ?>
@@ -80,7 +85,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
 
 <?php endif; ?>
-<li><span class="users">
+<li class="nav-item"><span class="users">
   <strong>Üdvözöljük,</strong>
   <?php echo $_SESSION['username']; ?>
 </span></li>
