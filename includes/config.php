@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once 'vendor/Facebook/autoload.php';
 
 if (!session_id())
 {
