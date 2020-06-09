@@ -9,7 +9,7 @@
   $_SESSION['lastname'] = null;
   $_SESSION['user_role'] = null;
 
-header("Location: /cms/");
+header("location: /cms/");
 
 
 
