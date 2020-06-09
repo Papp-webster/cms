@@ -55,7 +55,7 @@ else
  // Get login url
     $facebook_permissions = ['email']; // Optional permissions
 
-    $facebook_login_url = $facebook_helper->getLoginUrl('http://localhost/cms/', $facebook_permissions);
+    $facebook_login_url = $facebook_helper->getLoginUrl('https://www.msztesz.hu/cms/', $facebook_permissions);
     
     // Render Facebook login button
     $facebook_login_url = '<li>
@@ -155,11 +155,15 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 		<?php else : ?>
     
      
-     <img src=" <?php echo $_SESSION["user_img"]; ?>" class="img-responsive img-circle img-thumbnail" />
-    <h3><?php echo $_SESSION["user_name"] ?></h3>';
-    <a class="nav-item" href="/cms/includes/logout.php"><i class="fa fa-power-off"></i>
+     <li><img src=" <?php echo $_SESSION["user_img"]; ?>" class="img-responsive img-circle img-thumbnail" /></li>
+    <li class="nav-item"><span class="users">
+  <strong>Üdvözöljük,</strong>
+  <?php echo $_SESSION['user_name']; ?>
+</span></li>
+    <li><a class="nav-item" href="/cms/includes/logout.php">
+<i class="fa fa-power-off"></i>
 <strong>Kilépés</strong>
-</a></li></a>
+</a></li>
     
     <?php endif; ?>	
 			
