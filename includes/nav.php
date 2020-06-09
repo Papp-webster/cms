@@ -55,7 +55,7 @@ else
  // Get login url
     $facebook_permissions = ['email']; // Optional permissions
 
-    $facebook_login_url = $facebook_helper->getLoginUrl('http://localhost/cms/', $facebook_permissions);
+    $facebook_login_url = $facebook_helper->getLoginUrl('https://www.msztesz.hu/cms/', $facebook_permissions);
     
     // Render Facebook login button
     $facebook_login_url = '<li>
