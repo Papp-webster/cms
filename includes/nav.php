@@ -10,7 +10,7 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
         <?php
-      include('config.php');
+      
 
       $facebook_output = '';
 
@@ -55,7 +55,7 @@ else
  // Get login url
     $facebook_permissions = ['email']; // Optional permissions
 
-    $facebook_login_url = $facebook_helper->getLoginUrl('http://loclalhost/cms/', $facebook_permissions);
+    $facebook_login_url = $facebook_helper->getLoginUrl('http://localhost/cms/', $facebook_permissions);
     
     // Render Facebook login button
     $facebook_login_url = '<li>
