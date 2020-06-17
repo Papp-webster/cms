@@ -145,10 +145,11 @@ if(!$view_query) {
       					</div>
               <p><?php echo $post_tartalom ?></p>
               
-              
+                    
                       <p class="pull-right"><a class="like" href="#"><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
+                      
                       <p class="pull-right"><a class="unlike" href="#"><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
-                     
+                      
                       <p class="pull-left">Likes: <?php echo $like; ?></p>
                       
                    <div class="clearfix"></div>
