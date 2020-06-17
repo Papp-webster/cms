@@ -71,7 +71,9 @@ function is_admin($username) {
  
     if(isLoggedIn()){
     $result = query("SELECT user_role FROM users WHERE user_name = '$username'");
+    conFirm($result);
     $row = mysqli_fetch_array($result);
+    
    
      if ($row['user_role'] == 'admin') {
    
@@ -81,7 +83,7 @@ function is_admin($username) {
        return false;
      }
  }
- return false;
+ 
 }
 
 function userName_exists($username) {
@@ -185,10 +187,10 @@ function login_user($username, $password) {
        $_SESSION['user_role'] = $db_role;
        $_SESSION['user_image'] = $db_image;
 
-       redirect("/cms/");
+       redirect("/cms");
 
      } else {
-       redirect("/cms/");
+       redirect("/cms");
      }
 
   }
@@ -319,9 +321,9 @@ function loggedInUserId(){
       $result = query("SELECT * FROM users WHERE user_name='" . $_SESSION['username'] ."'");
       $user = mysqli_fetch_array($result);
       
-      if(mysqli_num_rows($result) >=1){
-          return $user['user_id'];
-      }
+      return mysqli_num_rows($result) >= 1 ? $user['user_id'] : false;
+      
+      
     }
     return false;
 }

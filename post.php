@@ -80,7 +80,7 @@ if(!$view_query) {
 
         mysqli_stmt_execute($stmt1);
 
-        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user,  $post_date, $post_img, $post_tartalom, $post_views, $likes);
+        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user,  $post_date, $post_img, $post_tartalom, $post_views, $like);
 
       $stmt = $stmt1;
 
@@ -90,7 +90,7 @@ if(!$view_query) {
 
         mysqli_stmt_execute($stmt2);
 
-        mysqli_stmt_bind_result($stmt2, $post_cim, $post_author, $post_user, $post_date, $post_img, $post_tartalom, $post_views, $likes);
+        mysqli_stmt_bind_result($stmt2, $post_cim, $post_author, $post_user, $post_date, $post_img, $post_tartalom, $post_views, $like);
 
      $stmt = $stmt2;
 
@@ -145,10 +145,10 @@ if(!$view_query) {
               <p><?php echo $post_tartalom ?></p>
               
               
-                      <p class="pull-right"><a class="liked" href=""><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
-                      <p class="pull-right"><a class="unliked" href=""><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
+                      <p class="pull-right"><a class="like" href=""><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
+                      <p class="pull-right"><a class="unlike" href=""><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
                      
-                      <p class="pull-left">Likes: <?php echo $likes; ?></p>
+                      <p class="pull-left">Likes: <?php echo $like; ?></p>
                       
                    <div class="clearfix"></div>
 
