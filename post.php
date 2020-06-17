@@ -18,6 +18,7 @@ if(isset($_POST['liked'])){
     mysqli_query($connect, "UPDATE posztok SET likes=$likes+1 WHERE post_id=$post_id");
 
     mysqli_query($connect, "INSERT INTO likes(user_id, post_id) VALUES($user_id, $post_id)");
+    exit();
 }
 
 if(isset($_POST['unliked'])){
@@ -145,8 +146,8 @@ if(!$view_query) {
               <p><?php echo $post_tartalom ?></p>
               
               
-                      <p class="pull-right"><a class="like" href=""><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
-                      <p class="pull-right"><a class="unlike" href=""><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
+                      <p class="pull-right"><a class="like" href="#"><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
+                      <p class="pull-right"><a class="unlike" href="#"><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
                      
                       <p class="pull-left">Likes: <?php echo $like; ?></p>
                       
@@ -266,7 +267,7 @@ if(!$view_query) {
 <script>
   $(document).ready(function(){
      
-       var user_id = 55;
+       var user_id = 41;
        var post_id = <?php echo $catch_post_id; ?>
 
        //LIKE
