@@ -205,7 +205,7 @@ function conFirm($result) {
 
   global $connect;
   if (!$result) {
-    die('Az adatbázis kapcsolat hibás! <br>' . mysqli_error($connect));
+    die('Az adatbázis kapcsolat hibás: ' . mysqli_error($connect));
 }
 
 
