@@ -327,10 +327,16 @@ function loggedInUserId(){
     return false;
 }
 
-function userLiked($post_id = ''){
+function userLiked($post_id){
 $result = query("SELECT * FROM likes WHERE user_id=" .loggedInUserId() . " AND post_id={$post_id}");
 return mysqli_num_rows($result) >= 1 ? true : false;
 
+}
+
+function getLiked($post_id){
+  $result= query("SELECT * FROM likes WHERE post_id=$post_id");
+  conFirm($result);
+  echo mysqli_num_rows($result);
 }
 
 

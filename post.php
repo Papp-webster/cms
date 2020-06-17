@@ -66,10 +66,10 @@ if(!$view_query) {
 
 
  if (isset($_SESSION['username']) && is_admin($_SESSION['username'])) {
-    $stmt1 = mysqli_prepare($connect, "SELECT post_cim, post_author, post_user, post_date, post_img, post_tartalom, post_views, likes FROM posztok WHERE post_id = ?");
+    $stmt1 = mysqli_prepare($connect, "SELECT post_cim, post_author, post_user, post_date, post_img, post_tartalom, post_views FROM posztok WHERE post_id = ?");
 
 } else {
-    $stmt2 = mysqli_prepare($connect , "SELECT post_cim, post_author, post_user, post_date, post_img, post_tartalom, post_views, likes FROM posztok WHERE post_id = ? AND post_status = ? ");
+    $stmt2 = mysqli_prepare($connect , "SELECT post_cim, post_author, post_user, post_date, post_img, post_tartalom, post_views FROM posztok WHERE post_id = ? AND post_status = ? ");
 
         $published = 'publikált';
 
@@ -81,7 +81,7 @@ if(!$view_query) {
 
         mysqli_stmt_execute($stmt1);
 
-        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user,  $post_date, $post_img, $post_tartalom, $post_views, $like);
+        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user,  $post_date, $post_img, $post_tartalom, $post_views);
 
       $stmt = $stmt1;
 
@@ -91,7 +91,7 @@ if(!$view_query) {
 
         mysqli_stmt_execute($stmt2);
 
-        mysqli_stmt_bind_result($stmt2, $post_cim, $post_author, $post_user, $post_date, $post_img, $post_tartalom, $post_views, $like);
+        mysqli_stmt_bind_result($stmt2, $post_cim, $post_author, $post_user, $post_date, $post_img, $post_tartalom, $post_views);
 
      $stmt = $stmt2;
 
@@ -145,12 +145,13 @@ if(!$view_query) {
       					</div>
               <p><?php echo $post_tartalom ?></p>
               
-                    
+                    <?php mysqli_stmt_free_result($stmt); ?>
+                      
                       <p class="pull-right"><a class="like" href="#"><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
                       
                       <p class="pull-right"><a class="unlike" href="#"><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
                       
-                      <p class="pull-left">Likes: <?php echo $like; ?></p>
+                      <p class="pull-left">Likes: <?php getLiked($catch_post_id); ?></p>
                       
                    <div class="clearfix"></div>
 
