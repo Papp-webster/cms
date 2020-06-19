@@ -17,7 +17,12 @@ a.login-trigger {
   top: 0;
 }
 
-
+a.login-like{
+background: #3c70e8;
+color:  #fff;
+text-decoration: none;
+padding: 10px;
+}
 
 /*Modal*/
 #form-main {

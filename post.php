@@ -146,12 +146,19 @@ if(!$view_query) {
               <p><?php echo $post_tartalom ?></p>
               
                     <?php mysqli_stmt_free_result($stmt); ?>
+
+                    <?php if(isLoggedIn()): ?>
                       
                       <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="#"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
                       
+                      <?php else : ?>
+
+                        <p class="pull-right">A likoláshoz be kell jelentkeznie: <a class="login-like" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a></p>
+                        
+
+                        <?php endif ?>
                       
-                      
-                      <p class="pull-left">Likes: <?php getLiked($catch_post_id); ?></p>
+                      <p class="pull-left liked">Likes: <?php getLiked($catch_post_id); ?></p>
                       
                    <div class="clearfix"></div>
 
