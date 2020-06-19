@@ -147,9 +147,9 @@ if(!$view_query) {
               
                     <?php mysqli_stmt_free_result($stmt); ?>
                       
-                      <p class="pull-right"><a class="like" href="#"><span><i class="fas fa-thumbs-up"></i></span> Liked</a></p>
+                      <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="#"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
                       
-                      <p class="pull-right"><a class="unlike" href="#"><span><i class="fas fa-thumbs-down"></i></span> Unliked</a></p>
+                      
                       
                       <p class="pull-left">Likes: <?php getLiked($catch_post_id); ?></p>
                       
