@@ -149,7 +149,7 @@ if(!$view_query) {
 
                     <?php if(isLoggedIn()): ?>
                       
-                      <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="#"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
+                      <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="/cms/post/<?php echo $catch_post_id; ?>"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
                       
                       <?php else : ?>
 
