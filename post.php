@@ -269,7 +269,7 @@ if(!$view_query) {
 <script>
   $(document).ready(function(){
      
-       var user_id = 41;
+       var user_id = <?php echo loggedInUserId(); ?>;
        var post_id = <?php echo $catch_post_id; ?>
 
        //LIKE
