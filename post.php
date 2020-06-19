@@ -279,6 +279,10 @@ if(!$view_query) {
        var user_id = <?php echo loggedInUserId(); ?>;
        var post_id = <?php echo $catch_post_id; ?>
 
+       
+
+        
+
        //LIKE
 
       $('.like').click(function(){
@@ -293,7 +297,7 @@ if(!$view_query) {
              }
           });
       });
-
+    
       // UNLIKE
 
       $('.unlike').click(function(){
@@ -308,6 +312,7 @@ if(!$view_query) {
              }
           });
       });
+    
   })
 
 </script>
