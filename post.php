@@ -149,7 +149,7 @@ if(!$view_query) {
 
                     <?php if(isLoggedIn()): ?>
                       
-                      <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="/cms/post/<?php echo $catch_post_id; ?>"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
+                      <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href="/cms/post/<?php echo $catch_post_id; ?>" data-toggle="tooltip" data-placement="top" title="Itt likolhatja a posztot!"><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
                       
                       <?php else : ?>
 
@@ -280,7 +280,9 @@ if(!$view_query) {
        var post_id = <?php echo $catch_post_id; ?>
 
        
-
+         $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+});
         
 
        //LIKE
