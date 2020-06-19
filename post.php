@@ -153,7 +153,7 @@ if(!$view_query) {
                       
                       <?php else : ?>
 
-                        <p class="pull-right">A likoláshoz be kell jelentkeznie: <a class="login-like" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a></p>
+                        <p class="pull-right"><a class="login-like" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a>a likohoz</p>
                         
 
                         <?php endif ?>
