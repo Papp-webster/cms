@@ -147,18 +147,20 @@ if(!$view_query) {
               
                     <?php mysqli_stmt_free_result($stmt); ?>
 
+                    
                     <?php if(isLoggedIn()): ?>
                       
                       <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href=""><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
                       
                       <?php else : ?>
-
-                        <p class="pull-right"><a class="login-like" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a>a likohoz</p>
+                        <div class="ilogin">A Hozzászóláshoz és likehoz bejelentkezés szükséges.</div>
+                        <div class="needlogin"><a class="login-like left" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a></div>
                         
 
                         <?php endif ?>
                       
-                      <p class="pull-left liked">Likes: <?php getLiked($catch_post_id); ?></p>
+                      <div class="pull-left liked">Likes: (<?php getLiked($catch_post_id); ?>)</div>
+
                       
                    <div class="clearfix"></div>
 
@@ -203,6 +205,7 @@ if(!$view_query) {
              <div class="comment-wrapper">
                  <div class="panel panel-info">
                    <h4>Kommentek:</h4>
+                    
                    <form action="" method="post" role="form">
                      <div class="form-group">
                       <label for="user">Név:</label>
@@ -217,7 +220,7 @@ if(!$view_query) {
                        <hr>
 
                        <!-- posted Comment -->
-
+                        
                        <?php
                        $query = "SELECT * FROM comments WHERE comment_post_id = {$catch_post_id} ";
                        $query .= "AND comment_status = 'elfogadva' ";
@@ -230,7 +233,7 @@ if(!$view_query) {
                        $comment_author = $row['comment_author'];
                        
                        ?>
-
+                            
                          <ul class="media-list">
                              <li class="media">
                              <div class="media-body">
@@ -251,7 +254,7 @@ if(!$view_query) {
 
                      }
                      ?>
-
+                   
                      </div>
                  </div>
 
@@ -277,6 +280,7 @@ if(!$view_query) {
        var user_id = <?php echo loggedInUserId(); ?>;
        var post_id = <?php echo $catch_post_id; ?>
 
+       
 
        //LIKE
 
@@ -307,7 +311,7 @@ if(!$view_query) {
              }
           });
       });
-    
+       
   })
 
 </script>
