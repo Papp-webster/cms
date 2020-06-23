@@ -11,5 +11,6 @@ foreach ($db as $key => $value) {
 
 $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-$query = "SET NAMES utf8";
+$query = "SET collation_connection = 'utf8_general_ci'";
+
 mysqli_query($connect,$query);
