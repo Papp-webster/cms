@@ -11,12 +11,27 @@ ClassicEditor.create(document.querySelector("#editor"), {
     "blockQuote",
     "|",
     "ckfinder",
+    "mediaEmbed",
     "|",
     "undo",
     "redo",
   ],
   ckfinder: {
     uploadUrl: "../img02",
+  },
+  mediaEmbed: {
+    extraProviders: [
+      {
+        name: "extraProvider",
+        url: /^example\.com\/media\/(\w+)/,
+        html: (match) =>
+          '<div style="position:relative; padding-bottom:100%; height:0">' +
+          '<iframe src="..." frameborder="0" ' +
+          'style="position:absolute; width:100%; height:100%; top:0; left:0">' +
+          "</iframe>" +
+          "</div>",
+      },
+    ],
   },
 
   heading: {
