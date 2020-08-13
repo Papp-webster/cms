@@ -9,7 +9,17 @@ ClassicEditor.create(document.querySelector("#editor"), {
     "bulletedList",
     "numberedList",
     "blockQuote",
+    "|",
+    "ckfinder",
+    "imageUpload",
+    "|",
+    "undo",
+    "redo",
   ],
+  ckfinder: {
+    uploadUrl: "../img02",
+  },
+
   heading: {
     options: [
       {
@@ -44,7 +54,7 @@ ClassicEditor.create(document.querySelector("#editor"), {
     ],
   },
 }).catch((error) => {
-  console.error(error);
+  console.error("Hiba az editorba!", error);
 });
 
 $(document).ready(function () {
