@@ -11,7 +11,6 @@ ClassicEditor.create(document.querySelector("#editor"), {
     "blockQuote",
     "|",
     "ckfinder",
-    "imageUpload",
     "|",
     "undo",
     "redo",
