@@ -12,10 +12,32 @@ ClassicEditor.create(document.querySelector("#editor"), {
     "|",
     "ckfinder",
     "mediaEmbed",
+    "imageUpload",
+    "imageResize",
     "|",
     "undo",
     "redo",
   ],
+
+  image: {
+    upload: "../img02",
+    types: ["png", "jpeg", "webp"],
+    resizeUnit: "%",
+    resizeOptions: [
+      {
+        name: "imageResize:original",
+        value: null,
+      },
+      {
+        name: "imageResize:50",
+        value: "50",
+      },
+      {
+        name: "imageResize:75",
+        value: "75",
+      },
+    ],
+  },
   ckfinder: {
     uploadUrl: "../img02",
   },
