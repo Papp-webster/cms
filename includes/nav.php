@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
 	<div class="navbar-header d-flex col">
-		<a class="navbar-brand" href="/cms"><img src="/cms/img/blog.png" width = "50" height = "50" alt="logo"></a>  		
+		<a class="navbar-brand" href="/cms"><img src="/cms/img/logo02.png"  alt="logo"></a>  		
 		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
