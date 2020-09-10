@@ -81,7 +81,7 @@ if(!$view_query) {
 
         mysqli_stmt_execute($stmt1);
 
-        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user,  $post_date, $post_img, $post_tartalom, $post_views);
+        mysqli_stmt_bind_result($stmt1, $post_cim, $post_author, $post_user, $post_date, $post_img, $post_tartalom, $post_views);
 
       $stmt = $stmt1;
 
