@@ -54,7 +54,7 @@ if (isset($_POST['checkBoxArray'])) {
             }
 
            $query = "INSERT INTO posztok(post_cat_id, post_cim, post_author, post_user, post_date, post_img, post_tartalom, post_tags, post_status) ";
-           $query .= "VALUES({$post_cat_id}, '{$post_cim}', '{$post_author}','{$post_user}',now(),'{$post_img}', '{$post_tartalom}', '{$post_tags}', '{$post_status}')";
+           $query .= "VALUES({$post_cat_id}, '{$post_cim}', '{$post_author}','{$post_user}','{$post_date}','{$post_img}', '{$post_tartalom}', '{$post_tags}', '{$post_status}')";
            $copy_query = mysqli_query($connect, $query);
            confirm($copy_query);
            break;
