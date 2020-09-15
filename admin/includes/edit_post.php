@@ -35,6 +35,10 @@ if (isset($_POST['submit'])) {
   $post_tartalom = $_POST['post_tartalom'];
   $post_tags = $_POST['post_tags'];
 
+  date_default_timezone_set("Europe/Budapest");
+  $currentTime = time();
+  $post_date = strftime("%Y.%m.%d %H:%M", $currentTime);
+
   move_uploaded_file($post_image_temp, "$location/$post_image" );
 
 
@@ -54,7 +58,7 @@ if (isset($_POST['submit'])) {
   $query = "UPDATE posztok SET ";
   $query .="post_cim ='{$post_cim}', ";
   $query .="post_cat_id ='{$post_cat_id}', ";
-  $query .="post_date = now(), ";
+  $query .="post_date = '{$post_date}', ";
   $query .="post_user = '{$post_user}', ";
   $query .="post_author ='{$post_author}', ";
   $query .="post_status ='{$post_status}', ";

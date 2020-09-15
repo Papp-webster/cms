@@ -14,9 +14,10 @@ if (isset($_POST['create_post'])) {
 
   $post_tags = $_POST['post_tags'];
   $post_tartalom = $_POST['post_tartalom'];
+  
   date_default_timezone_set("Europe/Budapest");
   $currentTime = time();
-  $post_date = strftime("%Y.%m.%d %H:%M:%S", $currentTime);
+  $post_date = strftime("%Y.%m.%d %H:%M", $currentTime);
    
 
 
