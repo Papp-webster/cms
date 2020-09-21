@@ -201,15 +201,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
  }
 
-
-
-
            ?>
-
-
-
-
-
 
 
       <div class="modal-body fix">
