@@ -15,7 +15,7 @@ $(document).ready(function(){
                 type: 'post',
                 data: {row:row},
                 beforeSend:function(){
-                    $(".loadmore").text("Loading...");
+                    $(".loadmore").text("Tölt...");
                 },
                 success: function(response){
 
@@ -33,7 +33,7 @@ $(document).ready(function(){
                             $('.loadmore').text("Kevesebb");
                             $('.loadmore').css("cursor","pointer");
                         }else{
-                            $(".loadmore").text("Még több poszt..");
+                            $(".loadmore").text("Nincs több poszt..");
                             $(".loadmore").css("cursor", "pointer");
                         }
                     
@@ -42,13 +42,13 @@ $(document).ready(function(){
                 }
             });
         }else{
-            $('.loadmore').text("Loading...");
+            $('.loadmore').text("Tölt...");
 
             // Setting little delay while removing contents
             
 
                 // When row is greater than allcount then remove all class='post' element after 3 element
-                $('.load:nth-child(3)').nextAll('.load').remove().fadeIn();
+                $('.load:nth-child(4)').nextAll('.load').remove().fadeIn();
 
                 // Reset the value of row
                 $("#row").val(0);
