@@ -86,6 +86,96 @@ function is_admin($username) {
  
 }
 
+function user_validation() {
+           
+  if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+
+             $username = trim($_POST['username']);
+             $email = trim($_POST['email']);
+             $password = trim($_POST['pass']);
+
+
+             $error = [
+               'username'=> '',
+               'email'=> '',
+               'pass'=> ''
+
+             ];
+
+             if(strlen($username) < 4){
+               $error['username'] = 'Felhasználó név több karater legyen!';
+           }
+
+           if($username ==''){
+             $error['username'] = 'Felhasználó nem lehet üres!';
+         }
+
+         if(userName_exists($username)){
+           $error['username'] = 'Felhasználó név foglalt!';
+       }
+
+
+
+      if($email ==''){
+       $error['email'] = 'Email nem lehet üres!';
+      }
+
+
+
+   if(empty($password)){
+   $error['pass'] = 'A jelszó nem lehet üres!';
+  }
+   foreach ($error as $key => $value) {
+     if (empty($value)) {
+
+       unset($error[$key]);
+     }
+   } // foreach
+
+ if (empty($error)) {
+   register_user($username, $email, $password);
+   login_user($username, $password);
+ }
+
+
+   $length = 50;
+   $token = bin2hex(openssl_random_pseudo_bytes($length));
+   if(email_exists($email)) {
+
+     $stmt = mysqli_prepare($connect, "UPDATE users SET token='{$token}' WHERE user_email = ?");
+     mysqli_stmt_bind_param($stmt, "s", $email);
+     mysqli_stmt_execute($stmt);
+     mysqli_stmt_close($stmt);
+
+    /* configure PHPMailer */
+    $mail = new PHPMailer();
+    $mail->isSendmail($email);
+    $mail->Host       = Config::SMTP_HOST;                    // Set the SMTP server to send through
+    $mail->Username   = Config::SMTP_USER;                     // SMTP username
+    $mail->Password   = Config::SMTP_PASSWORD;                 // SMTP password
+    $mail->Port       = Config::SMTP_PORT;                      // TCP port to connect to
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->isHTML(true);
+    $mail->CharSet = 'UTF-8';
+    $mail->setFrom('msztesz@gmail.com', 'Msztesz');
+    $mail->addAddress($email);
+    $mail->Subject = 'Jelszó emlékeztető!';
+    $mail->Body = '<p>Az új jelszó beállításához szükséges link:<a href="https://msztesz.hu/cms/reset.php?email='.$email.'&token='.$token.' ">https://msztesz.hu/cms/reset.php?email= '.$email.'&token='.$token.'</a></p>';
+    if ($mail->send()) {
+    $error['email'] = 'Email elküldve!';
+    $emailSent = true;
+    }
+   else {
+     $error['email'] = 'Sikertelen küldés!';
+   }
+}
+
+ }
+
+} //user_validation
+
 function userName_exists($username) {
   global $connect;
   $query ="SELECT user_name FROM users WHERE user_name = '$username'";
@@ -120,28 +210,6 @@ function email_exists($email) {
 
    function register_user($username, $email, $password) {
     global $connect;
-
-   /*if (empty($_POST["username"])) {
-       $nameErr = "Name is required";
-   } else {
-     $username = test_input($_POST["username"]);
-     // check if name only contains letters and whitespace
-       if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
-       $nameErr = "Only letters and white space allowed";
-       }
-   }
-
-    if (empty($_POST["email"])) {
-      $emailErr = "Email is required";
-     } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-  }
-     }*/
-
-
 
       $username = mysqli_real_escape_string($connect, $username);
       $email = mysqli_real_escape_string($connect, $email);
@@ -186,6 +254,7 @@ function login_user($username, $password) {
        $_SESSION['lastname'] = $db_lastname;
        $_SESSION['user_role'] = $db_role;
        $_SESSION['user_image'] = $db_image;
+       
 
        redirect("/cms");
 

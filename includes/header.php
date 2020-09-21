@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <?php include('includes/db.php'); ?>
 <?php include('admin/functions.php'); ?>
-<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="hu">
 
