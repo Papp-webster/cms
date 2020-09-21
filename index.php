@@ -92,12 +92,16 @@
                 echo "<p class='show-post'>Jelenleg nincs POSZT!</p>";
               } else {
 
+            $rowperpage = 3;
+
+            // counting total number of posts
+            $allcount_query = "SELECT count(*) as allcount FROM posztok";
+            $allcount_result = mysqli_query($connect,$allcount_query);
+            $allcount_fetch = mysqli_fetch_array($allcount_result);
+            $allcount = $allcount_fetch['allcount'];
 
 
-
-
-
-                 $query = "SELECT * FROM posztok ORDER BY post_id DESC LIMIT 3";
+                 $query = "SELECT * FROM posztok ORDER BY post_id asc limit 0,$rowperpage";
                  $select_all_post = mysqli_query($connect, $query);
                  while ($row = mysqli_fetch_assoc($select_all_post)) {
                    $post_id = $row['post_id'];
@@ -115,7 +119,7 @@
                    <!-- Blog Post -->
 
                			<!-- row -->
-                    <div id="load">
+                    <div class="load" id="post_<?php echo $post_id; ?>">
                     <div class="container">
 
 
@@ -166,9 +170,10 @@
                 <div class="row">
                     <div class="col-md-12">
                       <div class="section-row loadmore text-center">
-            						  <a id="btn-load" type="button" name="button">Még több poszt</a>
+            						  <a id="btn-load" type="button" name="button">Még több poszt..</a>
             					</div>
-
+                    <input type="hidden" id="row" value="0">
+                    <input type="hidden" id="all" value="<?php echo $allcount; ?>">
 
                     </div><!-- end col -->
                 </div><!-- end row -->

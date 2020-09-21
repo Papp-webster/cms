@@ -1,11 +1,13 @@
 <?php include "includes/header.php"; ?>
 
 <?php
-$postNewCount = $_POST['postNewCount'];
+$row = $_POST['row'];
+$rowperpage = 3;
+// selecting posts
+$query = 'SELECT * FROM posztok limit '.$row.','.$rowperpage;
+$result = mysqli_query($connect,$query);
 
-$query = "SELECT * FROM posztok ORDER BY post_id DESC LIMIT 0,$postNewCount";
-$select_all_post = mysqli_query($connect, $query);
-while ($row = mysqli_fetch_assoc($select_all_post)) {
+while ($row = mysqli_fetch_assoc($result)) {
   $post_id = $row['post_id'];
   $post_cim = $row['post_cim'];
   $post_user = $row['post_user'];
@@ -18,7 +20,7 @@ while ($row = mysqli_fetch_assoc($select_all_post)) {
   
    ?>
 
-
+<div class="load" id="post_<?php echo $post_id; ?>">
 <div class="container">
 
 
@@ -54,5 +56,6 @@ while ($row = mysqli_fetch_assoc($select_all_post)) {
 
   </div>
     </div>
+          </div>
 
   <?php } ?>
