@@ -20,7 +20,7 @@ $(document).ready(function(){
                 success: function(response){
 
                     // Setting little delay while displaying new content
-                    
+                    setTimeout(function () {
                         // appending posts after last post with class="post"
                         $(".load:last").after(response).show().fadeIn();
 
@@ -37,16 +37,16 @@ $(document).ready(function(){
                             $(".loadmore").css("cursor", "pointer");
                         }
                     
-
+                    }, 1000);
 
                 }
             });
-        }else{
+        }else {
             $('.loadmore').text("Tölt...");
 
             // Setting little delay while removing contents
             
-
+                setTimeout(function () {
                 // When row is greater than allcount then remove all class='post' element after 3 element
                 $('.load:nth-child(4)').nextAll('.load').remove().fadeIn();
 
@@ -57,7 +57,7 @@ $(document).ready(function(){
                 $('.loadmore').text("Még több poszt..");
                 $('.loadmore').css("cursor","pointer");
 
-            
+                }, 500);
 
 
         }
