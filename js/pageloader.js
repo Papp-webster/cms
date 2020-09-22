@@ -3,6 +3,7 @@ $(document).ready(function(){
 
      // Load more data
     $('.loadmore').click(function(){
+        
         var row = Number($('#row').val());
         var allcount = Number($('#all').val());
         row = row + 3;
@@ -41,7 +42,7 @@ $(document).ready(function(){
 
                 }
             });
-        }else {
+        } else {
             $('.loadmore').text("Tölt...");
 
             // Setting little delay while removing contents
