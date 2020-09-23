@@ -86,6 +86,8 @@ function is_admin($username) {
  
 }
 
+
+
 function userName_exists($username) {
   global $connect;
   $query ="SELECT user_name FROM users WHERE user_name = '$username'";
@@ -120,28 +122,6 @@ function email_exists($email) {
 
    function register_user($username, $email, $password) {
     global $connect;
-
-   /*if (empty($_POST["username"])) {
-       $nameErr = "Name is required";
-   } else {
-     $username = test_input($_POST["username"]);
-     // check if name only contains letters and whitespace
-       if (!preg_match("/^[a-zA-Z ]*$/",$username)) {
-       $nameErr = "Only letters and white space allowed";
-       }
-   }
-
-    if (empty($_POST["email"])) {
-      $emailErr = "Email is required";
-     } else {
-    $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-  }
-     }*/
-
-
 
       $username = mysqli_real_escape_string($connect, $username);
       $email = mysqli_real_escape_string($connect, $email);
@@ -186,6 +166,7 @@ function login_user($username, $password) {
        $_SESSION['lastname'] = $db_lastname;
        $_SESSION['user_role'] = $db_role;
        $_SESSION['user_image'] = $db_image;
+       
 
        redirect("/cms");
 

@@ -11,61 +11,6 @@
 		<ul class="nav navbar-nav">
         <?php
       
-
-      $facebook_output = '';
-
-$facebook_helper = $facebook->getRedirectLoginHelper();
-
-if(isset($_GET['code']))
-{
- if(isset($_SESSION['access_token']))
- {
-  $access_token = $_SESSION['access_token'];
- }
- else
- {
-  $access_token = $facebook_helper->getAccessToken();
-
-  $_SESSION['access_token'] = $access_token;
-
-  $facebook->setDefaultAccessToken($_SESSION['access_token']);
- }
-
- $_SESSION['user_id'] = '';
- $_SESSION['user_name'] = '';
- $_SESSION['user_img'] = '';
-
- $graph_response = $facebook->get("/me?fields=name", $access_token);
-
- $facebook_user_info = $graph_response->getGraphUser();
-
- if(!empty($facebook_user_info['id']))
- {
-  $_SESSION['user_img'] = 'http://graph.facebook.com/'.$facebook_user_info['id'].'/picture';
- }
-
- if(!empty($facebook_user_info['name']))
- {
-  $_SESSION['user_name'] = $facebook_user_info['name'];
- }
-
- }
-else
-{
- // Get login url
-    $facebook_permissions = ['email']; // Optional permissions
-
-    $facebook_login_url = $facebook_helper->getLoginUrl('http://localhost/cms/', $facebook_permissions);
-    
-    // Render Facebook login button
-    $facebook_login_url = '<li>
-        <a class="navbar-brand" href="'.$facebook_login_url.'">
-          <i class="fab fa-facebook-square"></i> facebook
-          </a>
-      </li>';
-}
-
-
 $query = "SELECT * FROM kategoriak";
 $select_all_cat_query = mysqli_query($connect, $query);
 while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
@@ -120,11 +65,8 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
               </div>
             </form>
 		<ul class="nav navbar-nav navbar-right ml-auto">
-    <?php if(isset($facebook_login_url)) : ?>
     
-    
-    
-        <?php if (isset($_SESSION['user_role'])): ?>
+  <?php if (isset($_SESSION['user_role'])): ?>
 
 <?php if (empty($_SESSION['user_image'])): ?>
   <li>
@@ -148,25 +90,11 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 <strong>Kilépés</strong>
 </a></li>
 <?php else: ?>
-  <?php echo $facebook_login_url; ?>
+  
  <a class="login-trigger" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a>
 <?php endif; ?>
 </ul>			
-		<?php else : ?>
-    
-     
-     <li><img src=" <?php echo $_SESSION["user_img"]; ?>" class="img-responsive img-circle img-thumbnail" /></li>
-    <li class="nav-item"><span class="users">
-  <strong>Üdvözöljük,</strong>
-  <?php echo $_SESSION['user_name']; ?>
-</span></li>
-    <li><a class="nav-item" href="/cms/includes/flogout.php">
-<i class="fa fa-power-off"></i>
-<strong>Kilépés</strong>
-</a></li>
-    
-    <?php endif; ?>	
-			
+	
 		
 	</div>
 </nav>
@@ -186,7 +114,6 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
 
            require './vendor/autoload.php';
-
            if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
@@ -222,7 +149,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
 
 
-   if($password ==''){
+   if(empty($password)){
    $error['pass'] = 'A jelszó nem lehet üres!';
   }
    foreach ($error as $key => $value) {
@@ -273,15 +200,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
 
  }
 
-
-
-
            ?>
-
-
-
-
-
 
 
       <div class="modal-body fix">
@@ -301,7 +220,7 @@ while ($row = mysqli_fetch_assoc($select_all_cat_query)) {
              <p class="error text-center"><?php echo isset($error['email'])?  $error['email'] : ''?> </p>
 
           <input class="user form-control" type="password" name="pass" placeholder="Jelszó">
-          <p class="error text-center"><?php echo isset($error['password'])?  $error['password'] : ''?> </p>
+          <p class="error text-center mb-4"><?php echo isset($error['password'])?  $error['password'] : ''?> </p>
           <button class="btn login" name="sendin" type="send">Regisztráció</button>
         </form>
 

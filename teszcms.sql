@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Gép: localhost
--- Létrehozás ideje: 2020. Jún 08. 18:52
--- Kiszolgáló verziója: 10.0.38-MariaDB
--- PHP verzió: 5.6.40
+-- Gép: 127.0.0.1
+-- Létrehozás ideje: 2020. Sze 17. 10:11
+-- Kiszolgáló verziója: 10.1.37-MariaDB
+-- PHP verzió: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `mszteszh_cms`
+-- Adatbázis: `teszcms`
 --
 
 -- --------------------------------------------------------
@@ -36,15 +36,6 @@ CREATE TABLE `comments` (
   `comment_status` varchar(255) CHARACTER SET utf8 NOT NULL,
   `comment_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- A tábla adatainak kiíratása `comments`
---
-
-INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_content`, `comment_status`, `comment_date`) VALUES
-(153, 22, 'Jhon', 'aztaaa!!', 'elfogadva', '2020-02-21'),
-(156, 22, ' Nomenestomen', 'szia john ', 'elfogadva', '2020-03-06'),
-(158, 47, ' Husi', 'Nomen est omen est spiritus sancti', 'elfogadva', '2020-03-07');
 
 -- --------------------------------------------------------
 
@@ -63,8 +54,8 @@ CREATE TABLE `kategoriak` (
 
 INSERT INTO `kategoriak` (`cat_id`, `cat_cim`) VALUES
 (5, 'Balaton'),
-(6, 'Nyaralások'),
-(7, 'Technológia');
+(6, 'NyaralÃ¡sok'),
+(7, 'Technology');
 
 -- --------------------------------------------------------
 
@@ -83,10 +74,7 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `user_id`, `post_id`) VALUES
-(24, 55, 48),
-(25, 55, 48),
-(26, 55, 48),
-(28, 55, 47);
+(1, 41, 48);
 
 -- --------------------------------------------------------
 
@@ -100,7 +88,7 @@ CREATE TABLE `posztok` (
   `post_cim` varchar(255) CHARACTER SET utf8 NOT NULL,
   `post_author` varchar(255) CHARACTER SET utf8 NOT NULL,
   `post_user` varchar(255) NOT NULL,
-  `post_date` date NOT NULL,
+  `post_date` varchar(50) NOT NULL,
   `post_img` text CHARACTER SET utf8 NOT NULL,
   `post_tartalom` text CHARACTER SET utf8 NOT NULL,
   `post_tags` varchar(255) NOT NULL,
@@ -115,11 +103,9 @@ CREATE TABLE `posztok` (
 --
 
 INSERT INTO `posztok` (`post_id`, `post_cat_id`, `post_cim`, `post_author`, `post_user`, `post_date`, `post_img`, `post_tartalom`, `post_tags`, `post_com_count`, `post_status`, `post_views`, `likes`) VALUES
-(22, 6, 'Balatoni Kirándulás', 'Michell foxer', '', '2020-03-11', 'tt.jpg', '<p>Lórum ipse számos máshol nehezen fokvós bonótot és hetlen stást is magál. A kismelő södelet lereszére, illetve a kegyves zsombén bromára – a södelet timalájától függően – résliznie kell. Szítás ki kell durásznia a felen zsombénokkal nyúlékos portyák illetve gyakontások pihető pacnokát. <a href=\"https://www.msztesz.hu/\">Tulus ingedvés a colát,</a> a vadeleket és a tenokot nem igélen packodnia, illetőleg olyan felgémben sodnia, amely közvetlenül vagy közvetve a zsürjés túráját porgorgatja. Tiskalia ingedvés (1) a csírázatos túrát is szemi ájust, menénzést (a vermárdokban: ittan ájus) loccsantnia, ámeszről falnia, mosztumba hincsnie, szédálnia, árkolnia, rodnia, továbbá hortóságait, censeit szögesednie, illetve véglegesen csáválnia a vitó picit rapár csepségzepések plataival és törögeivel sisallárban igélen. (2) Az (1) roknár betlend rintély a zürkmény taszáros pengető szendelségéhez hákos. (3) a csírázatos egészség tékedése érdekében egyes konyos ittan ájusok durkos bizete és jestegbe terese. (4) portya vagy annak hitelő ítménye esetén a zürkmény taszáros az ittan ájussal készteglő rintélyet rinotoghatja, illetve az ittan ájus bicionát kurtíthatja.</p>', 'balaton nyaralás', 0, 'publikált', 17, 0),
-(23, 7, 'Tech cuccok part3', 'Michell Zoe', '', '2020-03-06', 'tecg01.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p>', 'technológia', 0, 'publikált', 4, 0),
-(45, 6, 'Factory', 'Molestiae ducimus', '', '2020-05-27', 'home-bg.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p>', 'gyár', 0, 'publikált', 6, 0),
-(47, 5, 'Balaton te csodás!', '', 'valuk', '2020-03-09', 'bb.jpg', '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee</p>', 'balaton nyaralás', 0, 'publikált', 2, 1),
-(48, 7, 'Technológiai Fejlődés!', 'Joe badanski', 'valuk', '2020-05-27', 'tech06.jpg', '<p>MEm finibus eu tortor eget iaculis. Nulla id eros in felis egestas aliquam. – olvasható rengeteg, még félkész weboldalon, ahol nem a szöveg tartalma, hanem külleme és elhelyezkedése a lényeg.&nbsp;</p><p>amikor egy ismeretlen nyomdász összeállította a saját nyomdakészletét, és ezzel szemléltette a különböző betűket. A közhiedelemmel ellentétben azonban nem zagyva szövegről van szó – Cicero egy könyvének, A Jó és Rossz határainak átírt és kicsit megmásított részlete, amelyet a nagy gondolkodó és államférfi Kr. e. 45-ben vetett papírra. Az írás az etika szabályairól és elméletéről szól – nem csoda, hogy a reneszánsz időszakban olyan előszeretettel alkalmazták.</p><p>&nbsp;</p><p>AZ egy régóta elfogadott tény, miszerint egy olvasót zavarja az olvasható szöveg miközben a szöveg elrendezését nézi. A Lorem Ipsum használatának lényege, hogy többé-kevésbé rendezettebb betûket tartalmaz, ellentétben a Tartalom helye, Tartalom helye-féle megoldással. Sok desktop szerkesztõ és weboldal szerkesztõ használja a Lorem Ipsum-ot mint alapbeállítású szövegmodellt, és egy keresés a lorem ipsum-ra sok félkész weboldalt fog eredményezni.</p><p><a href=\"https://24.hu/belfold/2020/05/27/trianon100-ablonczy-balazs-bekeszerzodes-interju/\">https://24.hu/belfold/2020/05/27/trianon100-ablonczy-balazs-bekeszerzodes-interju/</a></p>', 'technológia', 0, 'publikált', 17, 2);
+(23, 7, 'Tech cuccok part3', 'Michell Zoe', '', '2020.09.12 07:54', 'tecg01.jpg', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>&nbsp;</p>', 'technolÃ³gia', 0, 'publikÃ¡lt', 6, 0),
+(47, 5, 'Balaton te csodÃ¡s!', '', 'valuk', '2020-07-30', 'bb.jpg', '<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure? On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee</p>', 'balaton nyaralÃ¡s', 0, 'publikÃ¡lt', 0, 0),
+(48, 7, 'TechnolÃ³giai FejlÅ‘dÃ©s!', 'Joe badanski', '', '2020-07-30', 'tech06.jpg', '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p><p><a href=\"\">https://24.hu/belfold/2020/05/27/trianon100-ablonczy-balazs-bekeszerzodes-interju/</a></p>', 'technolÃ³gia', 0, 'publikÃ¡lt', 15, 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +131,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`, `token`) VALUES
-(41, 'valuk', '$2y$12$MFtvbKH19Q2OSmJeoNNZYOTdxsUnTkstU070D8PB2tcF9SpE0gQyG', 'Simon', 'Robino', 'papp.laszlo.web@gmail.com', 'lez.jpg', 'admin', '', '');
+(41, 'valuk', '$2y$12$MFtvbKH19Q2OSmJeoNNZYOTdxsUnTkstU070D8PB2tcF9SpE0gQyG', 'Simon', 'Robino', 'papp.laszlo.web@gmail.com', 'lez.jpg', 'admin', '', '4bd9ccf7f8b20be708744514d8249bd251d53e70812762a4b7df1cf08eb9bbdc0104f70134bfa979001fc5aa6c75f6f7e857');
 
 -- --------------------------------------------------------
 
@@ -267,7 +253,12 @@ INSERT INTO `users_online` (`id`, `session`, `time`) VALUES
 (101, 'l2rqak62vcvo9p7vd0icdkn0v4', 1590591542),
 (102, '79k1learkvicv7itv9liqcck66', 1590738989),
 (103, '1fvcp5ctbmiu5mdscoathn3ug4', 1591366431),
-(104, 'uqcas3km7sgrhttguo75857kv1', 1591604237);
+(104, 'uqcas3km7sgrhttguo75857kv1', 1591604237),
+(105, 'g3e2r5p8lfgjl4q22bfff0ujka', 1591640563),
+(106, '312qi1mosldrecd141go9gc1ls', 1592639384),
+(107, 'qk2g1m82rl55dnc5giemq215lk', 1592811839),
+(108, 'tbckd0nigtlu871751m7gmh407', 1596102485),
+(109, 'glk19hlfs279h42p111soi2vji', 1599890103);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -318,7 +309,7 @@ ALTER TABLE `users_online`
 -- AUTO_INCREMENT a táblához `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT a táblához `kategoriak`
@@ -330,7 +321,7 @@ ALTER TABLE `kategoriak`
 -- AUTO_INCREMENT a táblához `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT a táblához `posztok`
@@ -348,7 +339,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `users_online`
 --
 ALTER TABLE `users_online`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
