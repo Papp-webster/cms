@@ -172,7 +172,7 @@ echo "<p class='bg-success'>Sikeresen megváltozott a poszt!. <a href='../post.p
 
   <div class="form-group">
     <label for="post_tartalom">Poszt Tartalom</label>
-    <textarea  type="text" class="form-control" name="post_tartalom" id="editor" cols="30" rows="10"><?php echo str_replace('\r\n','</br>',$post_tartalom); ?></textarea>
+    <textarea  type="text" class="form-control" name="post_tartalom" id="summernote" cols="30" rows="10"><?php echo str_replace('\r\n','</br>',$post_tartalom); ?></textarea>
   </div>
 
 

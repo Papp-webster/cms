@@ -17,34 +17,7 @@ $(document).ready(function () {
       "h6",
     ],
     fontSizeUnits: ["px", "pt"],
-
-    height: $(window).height() - 300,
-    callbacks: {
-      onImageUpload: function (image) {
-        uploadImage(image[0]);
-      },
-    },
   });
-
-  function uploadImage(image) {
-    var data = new FormData();
-    data.append("image", image);
-    $.ajax({
-      url: "./cms/img02",
-      cache: false,
-      contentType: false,
-      processData: false,
-      data: data,
-      type: "post",
-      success: function (url) {
-        var image = $("<img>").attr("src", "http://" + url);
-        $("#summernote").summernote("insertNode", image[0]);
-      },
-      error: function (data) {
-        console.log(data);
-      },
-    });
-  }
 });
 
 $(document).ready(function () {
