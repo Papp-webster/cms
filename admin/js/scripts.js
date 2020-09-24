@@ -1,96 +1,50 @@
-//CK EDITOR
-ClassicEditor.create(document.querySelector("#editor"), {
-  toolbar: [
-    "heading",
-    "|",
-    "bold",
-    "italic",
-    "link",
-    "bulletedList",
-    "numberedList",
-    "blockQuote",
-    "|",
-    "ckfinder",
-    "mediaEmbed",
-    "imageUpload",
-    "imageResize",
-    "|",
-    "undo",
-    "redo",
-  ],
+$(document).ready(function () {
+  $("#summernote").summernote({
+    styleTags: [
+      "p",
+      {
+        title: "Blockquote",
+        tag: "blockquote",
+        className: "blockquote",
+        value: "blockquote",
+      },
+      "pre",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+    ],
+    fontSizeUnits: ["px", "pt"],
 
-  image: {
-    upload: "../img02",
-    types: ["png", "jpeg", "webp"],
-    resizeUnit: "%",
-    resizeOptions: [
-      {
-        name: "imageResize:original",
-        value: null,
+    height: $(window).height() - 300,
+    callbacks: {
+      onImageUpload: function (image) {
+        uploadImage(image[0]);
       },
-      {
-        name: "imageResize:50",
-        value: "50",
-      },
-      {
-        name: "imageResize:75",
-        value: "75",
-      },
-    ],
-  },
-  ckfinder: {
-    uploadUrl: "../img02",
-  },
-  mediaEmbed: {
-    extraProviders: [
-      {
-        name: "extraProvider",
-        url: /^example\.com\/media\/(\w+)/,
-        html: (match) =>
-          '<div style="position:relative; padding-bottom:100%; height:0">' +
-          '<iframe src="..." frameborder="0" ' +
-          'style="position:absolute; width:100%; height:100%; top:0; left:0">' +
-          "</iframe>" +
-          "</div>",
-      },
-    ],
-  },
+    },
+  });
 
-  heading: {
-    options: [
-      {
-        model: "paragraph",
-        title: "Paragraph",
-        class: "ck-heading_paragraph",
+  function uploadImage(image) {
+    var data = new FormData();
+    data.append("image", image);
+    $.ajax({
+      url: "./cms/img02",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: data,
+      type: "post",
+      success: function (url) {
+        var image = $("<img>").attr("src", "http://" + url);
+        $("#summernote").summernote("insertNode", image[0]);
       },
-      {
-        model: "heading1",
-        view: "h1",
-        title: "Főcim 1",
-        class: "ck-heading_heading1",
+      error: function (data) {
+        console.log(data);
       },
-      {
-        model: "heading2",
-        view: "h2",
-        title: "Főcim 2",
-        class: "ck-heading_heading2",
-      },
-      {
-        model: "heading3",
-        view: "h3",
-        title: "Főcim 3",
-        class: "ck-heading_heading3",
-      },
-      {
-        model: "heading4",
-        view: "h4",
-        title: "Főcim 4",
-        class: "ck-heading_heading4",
-      },
-    ],
-  },
-}).catch((error) => {
-  console.error("Hiba az editorba!", error);
+    });
+  }
 });
 
 $(document).ready(function () {

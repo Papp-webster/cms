@@ -115,7 +115,8 @@ echo "<p class='bg-success'>Sikeresen létrejött a poszt!.<a href='../post.php?
 
   <div class="form-group">
     <label for="post_tartalom">Poszt Tartalom</label>
-    <textarea type="text" class="form-control" name="post_tartalom" id="editor" cols="30" rows="10"></textarea>
+    
+    <textarea type="text" class="form-control" name="post_tartalom" id="summernote" cols="30" rows="10"></textarea>
   </div>
 
 
