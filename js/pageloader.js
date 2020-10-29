@@ -28,7 +28,7 @@ $(document).ready(function(){
                         var rowno = row + 3;
                         console.log(rowno, allcount);
                         // checking row value is greater than allcount or not
-                        if(rowno >= allcount){
+                        if(rowno > allcount){
                          
                             // Change the text and background
                             $('.loadmore').text("Kevesebb");
