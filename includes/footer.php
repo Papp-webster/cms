@@ -101,9 +101,9 @@ $version = 1;
 <!-- Bootstrap Core JavaScript -->
 <script src="/cms/js/bootstrap.min.js"></script>
 <script src="/cms/js/top.js"></script>
-<script src="/cms/js/pageloader.js?data=<?php $version; ?>"></script>
+<script src="/cms/js/pageloader.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/form.js"></script>
-<script src="/cms/js/jqBootstrapValidation.js?data=<?php $version; ?>"></script>
+<script src="/cms/js/jqBootstrapValidation.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/contact.js"?data=<?php $version; ?>></script>
 
 </body>

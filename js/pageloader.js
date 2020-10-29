@@ -26,15 +26,15 @@ $(document).ready(function(){
                         $(".load:last").after(response).show().fadeIn();
 
                         var rowno = row + 3;
-
+                        console.log(rowno, allcount);
                         // checking row value is greater than allcount or not
                         if(rowno >= allcount){
-
+                         
                             // Change the text and background
                             $('.loadmore').text("Kevesebb");
                             $('.loadmore').css("cursor","pointer");
                         } else{
-                            $(".loadmore").text("Nincs több poszt..");
+                            $(".loadmore").text("Még több poszt..");
                             $(".loadmore").css("cursor", "pointer");
                         }
                     
