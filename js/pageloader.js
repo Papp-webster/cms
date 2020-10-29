@@ -33,7 +33,7 @@ $(document).ready(function(){
                             // Change the text and background
                             $('.loadmore').text("Kevesebb");
                             $('.loadmore').css("cursor","pointer");
-                        }else{
+                        } else{
                             $(".loadmore").text("Nincs több poszt..");
                             $(".loadmore").css("cursor", "pointer");
                         }

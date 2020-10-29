@@ -1,7 +1,7 @@
 <?php include "includes/header.php"; ?>
 
 <?php
-$row = $_POST['row'];
+$row = intval($_POST['row']);
 $rowperpage = 3;
 // selecting posts
 $query = 'SELECT * FROM posztok limit '.$row.','.$rowperpage;

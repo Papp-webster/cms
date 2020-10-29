@@ -81,9 +81,6 @@
                  <?php
 
 
-
-
-
               $post_query_count = "SELECT * FROM posztok WHERE post_status = 'publikált'";
               $find_count = mysqli_query($connect, $post_query_count);
               $count = mysqli_num_rows($find_count);
