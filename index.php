@@ -6,7 +6,7 @@
 
 <section class="section first-section">
     <div class="container-fluid">
-      <div class="col-md-12">
+      <div class="col-md-12 mt-4">
         <div class="section-title">
           <h2 class="title">Legújabb posztok</h2>
         </div>
