@@ -44,6 +44,14 @@ body {
 
 /* NAVBAR */
 
+.navbar-main {
+  background-color: #282828;
+  -webkit-box-shadow: -4px 12px 11px -9px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -4px 12px 11px -9px rgba(0, 0, 0, 0.75);
+  box-shadow: -4px 12px 11px -9px rgba(0, 0, 0, 0.75);
+
+}
+
 a.nav-link {
   color: #fff;
     text-decoration: none;
