@@ -147,7 +147,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Dátum', 'Eredmény'],
+          ['Msztesz', 'Eredmény'],
               <?php
            $elements_text = ['Összes poszt','Aktív Posztok','Elutasított Posztok','Kommentek','Elutasított kommentek', 'Felhasználók','Feliratkozók', 'Kategóriák'];
            $elements_count = [$post_counts,$post_public_counts, $post_draft_counts, $comment_counts,$comm_elut_counts, $users_counts,$user_felirat_counts, $cat_counts ];
@@ -162,9 +162,9 @@
 
         var options = {
           chart: {
-            title: '',
+            title: 'Poszt adatok',
             subtitle: '',
-          }
+            }
         };
 
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
