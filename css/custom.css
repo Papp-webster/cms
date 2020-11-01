@@ -54,6 +54,53 @@ a.nav-link {
     cursor: pointer;
 }
 
+.sidebar,
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.sidebar {
+  left: -100%;
+  max-width: 300px;
+  transition: all ease 0.25s;
+  overflow-y: auto;
+  z-index: 1032;
+}
+
+.overlay {
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  visibility: hidden;
+  z-index: 1031;
+}
+
+.main-navigation.active .sidebar {
+  left: 0;
+}
+
+.main-navigation.active .overlay {
+  visibility: visible;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    flex-direction: row;
+    max-width: 100%;
+    transform: none;
+    transition: none;
+    overflow-y: visible;
+    z-index: auto;
+  }
+}
 
 .users{
   color: #fff;
@@ -670,121 +717,6 @@ a.like, a.unlike {
 
 
 /* search */
-
-.box {
-	 position: relative;
-	 margin: auto;
-	 top: 0;
-	 left: -25px;
-	 right: 0;
-	 bottom: 0;
-	 width: 50px;
-	 height: 50px;
-	 margin-left: 50px;
-}
- .box .search {
-	 position: absolute;
-	 margin: auto;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 width: 40px;
-	 height: 40px;
-	 background: #3c70e8;
-	 border-radius: 50%;
-	 transition: all 1s;
-	 z-index: 4;
-	 box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
-}
- .box .search:hover {
-	 cursor: pointer;
-}
- .box .search::before {
-	 content: "";
-	 position: absolute;
-	 margin: auto;
-	 top: 16px;
-	 right: 0;
-	 bottom: 0;
-	 left: 15px;
-	 width: 10px;
-	 height: 2px;
-	 background: white;
-	 transform: rotate(45deg);
-	 transition: all 0.5s;
-}
- .box .search::after {
-	 content: "";
-	 position: absolute;
-	 margin: auto;
-	 top: -5px;
-	 right: 0;
-	 bottom: 0;
-	 left: -5px;
-	 width: 18px;
-	 height: 18px;
-	 border-radius: 50%;
-	 border: 2px solid white;
-	 transition: all 0.5s;
-}
- .box .insearch {
-	 font-family: 'Inconsolata', monospace;
-	 position: absolute;
-	 margin: auto;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-	 width: 30px;
-	 height: 30px;
-	 outline: none;
-	 border: none;
-	 background: #3c70e8;
-	 color: white;
-	 text-shadow: 0 0 10px #3c70e8;
-	 padding: 0 80px 0 20px;
-	 border-radius: 30px;
-	 box-shadow: 0 0 25px 0 #3c70e8, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-	 transition: all 1s;
-	 opacity: 0;
-	 z-index: 5;
-	 font-weight: bolder;
-	 letter-spacing: 0.1em;
-}
- .box .insearch:hover {
-	 cursor: pointer;
-}
- .box .insearch:focus {
-	 width: 200px;
-	 opacity: 1;
-	 cursor: text;
-}
- .box .insearch:focus ~ .search {
-	 right: -310px;
-	 background: #151515;
-	 z-index: 6;
-}
- .box .insearch:focus ~ .search::before {
-	 top: 0;
-	 left: 0;
-	 width: 25px;
-}
- .box .insearch:focus ~ .search::after {
-	 top: 0;
-	 left: 0;
-	 width: 25px;
-	 height: 2px;
-	 border: none;
-	 background: white;
-	 border-radius: 0%;
-	 transform: rotate(-45deg);
-}
- .box .insearch::placeholder {
-	 color: white;
-	 opacity: 0.5;
-	 font-weight: bolder;
-}
 
 
 
