@@ -61,7 +61,7 @@
               <li><span class="fa fa-clock-o"></span> <?php echo $post_date ?></li>
               <li><span class="fa fa-eye"></span> <?php echo $post_views; ?></li>
             </ul>
-            <a class="post-img" href="post.php?p_id=<?php echo $post_id; ?>">
+            <a class="img-post" href="post.php?p_id=<?php echo $post_id; ?>">
               <img class="img-fluid" src="/cms/img/<?php echo $post_img; ?>" alt="">
               </a>
               <div class="content-box">
