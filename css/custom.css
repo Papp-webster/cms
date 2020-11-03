@@ -735,21 +735,14 @@ button.icon-btn {
 
 
 /* comment*/
-
-.comment-wrapper .panel-body {
-    max-height:650px;
-    overflow: auto;
+.fa-comment {
+   color: #3c70e8;
 }
 
-.comment-wrapper .media-list .media img {
-    width:64px;
-    height:64px;
-    border:4px solid #e5e7e8;
-
-}
-
-.comment-wrapper .media-list .media {
-    border-bottom:1px dashed #efefef;
+.comment-wrapper .comments .media {
+  background-color:#edeff3;
+  padding: 20px;
+  
 
 }
 
@@ -768,6 +761,7 @@ button.icon-btn {
   background: #3c70e8;
   color: #fff;
 }
+
 /* footer*/
 
 .bottom {
