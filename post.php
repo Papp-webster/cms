@@ -252,7 +252,7 @@ if (isset($_GET['p_id'])) {
               <?php }
               } else {
 
-                header("Location: index.php");
+                header("Location: /cms");
               }
               ?>
 
