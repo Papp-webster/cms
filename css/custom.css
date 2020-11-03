@@ -720,6 +720,19 @@ a.like, a.unlike {
 
 
 
+.input-group.icon-border {
+  border: 2px solid #3c70e8;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+button.icon-btn {
+  background-color: #3c70e8;
+  color: #fff;
+  border: none;
+  padding: 0px 8px 0px 10px;
+}
+
+
 
 /* comment*/
 

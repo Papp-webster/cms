@@ -78,17 +78,14 @@
     <?php endif; ?>
 
       </ul>
-
-
-
-
-
-      <form class="d-flex px-3 px-lg-2" action="/cms/search" method="post">
-
-        <input class="form-control mr-2" name="search" type="text" placeholder="Keresés..">
-
-        <button name="send" class="btn btn-outline-info" type="send">Keres</button>
-       </form>
+      <form class="form-inline d-flex px-3 px-lg-2" action="/cms/search" method="post">
+        <div class="input-group icon-border">
+          <input class="form-control form-control-sm  w-70" name="search" type="text" placeholder="Keresés..">
+          <div class=" input-group-append">
+            <button class="icon-btn" name="send"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
 
     </div>
   </div>
