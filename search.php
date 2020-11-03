@@ -19,7 +19,7 @@
 
               $search = $_POST['search'];
 
-              $query = "SELECT * FROM posztok WHERE post_tags LIKE '%$search%' ";
+              $query = "SELECT * FROM posztok WHERE post_tags LIKE '%$search%' OR post_cim LIKE '%$search%' OR post_tartalom LIKE '%$search%'";
               $search_query = mysqli_query($connect, $query);
 
               if (!$search_query) {
