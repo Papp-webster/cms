@@ -151,15 +151,8 @@ if (isset($_GET['p_id'])) {
 
                     <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href=""><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
 
-                    <form action="" method="post" role="form">
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fa fa-user"></i></span>
-                          </div>
-                          <input class="form-control" type="text" name="comment_author" value="<?php echo $_SESSION['username']; ?>">
-                        </div>
-                      </div>
+                    <form class="mt-4" action="" method="post" role="form">
+                      <h4 class="leader">Név: <?php echo $_SESSION['username']; ?></h4>
                       <div class="panel-body">
                         <textarea name="comment_content" class="form-control" placeholder="írj egy kommentet.." rows="3"></textarea>
                         <br>
@@ -186,7 +179,7 @@ if (isset($_GET['p_id'])) {
                 if (isset($_POST['create_comment'])) {
 
                   $catch_post_id = $_GET['p_id'];
-                  $comment_author = $_POST['comment_author'];
+                  $comment_author = $_SESSION['username'];
                   $comment_content = $_POST['comment_content'];
 
                   date_default_timezone_set("Europe/Budapest");
