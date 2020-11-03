@@ -44,9 +44,6 @@
 
       ?>
 
-
-
-
             <!-- Blog Post -->
             <h2>
               <a class="author" href="/cms/post/<?php echo $post_id; ?>"><?php echo $post_cim ?></a>
@@ -63,18 +60,19 @@
             </ul>
             <a class="img-post" href="post.php?p_id=<?php echo $post_id; ?>">
               <img class="img-fluid" src="/cms/img/<?php echo $post_img; ?>" alt="">
-              </a>
-              <div class="content-box">
-                <p><?php echo $post_tartalom ?></p>
+            </a>
+            <div class="content-box">
+              <p><?php echo $post_tartalom ?></p>
+              <a class="btn comm pull-right mb-4" href="post.php?p_id=<?php echo $post_id; ?>">Tovább..</a>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
 
-              </div>
 
-
-              <hr>
-        <?php }
+      <?php }
         }
       }
-        ?>
+      ?>
 
     </div>
 
