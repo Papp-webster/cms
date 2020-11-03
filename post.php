@@ -140,7 +140,7 @@ if(!$view_query) {
                     <div id="fb-root"></div>
                 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/hu_HU/sdk.js#xfbml=1&version=v6.0"></script>
       							<div class="fb-share-button" data-href="https://www.msztesz.hu/cms/post.php?p_id=<?php echo $catch_post_id; ?>" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Megosztás</a></div>
-      							<a href="#" data-toggle="modal" data-target="#emailmodal"><i class="fa fa-envelope"></i><span>Email</span></a>
+      							<a href="#" data-toggle="modal" data-target="#emailmodal"><i class="fa fa-envelope"></i><span>Üzenjen nekünk!</span></a>
       						</div>
       					</div>
               <p><?php echo $post_tartalom ?></p>
@@ -178,11 +178,15 @@ if(!$view_query) {
                 $comment_author = $_POST['comment_author'];
                 $comment_content = $_POST['comment_content'];
 
+                date_default_timezone_set("Europe/Budapest");
+                $currentTime = time();
+                $comment_date = strftime("%Y.%m.%d %H:%M", $currentTime);
+
                   if (!empty($comment_author) && !empty($comment_content)) {
 
                     $query = "INSERT INTO comments (comment_post_id, comment_author, comment_content, comment_status,comment_date)";
 
-                        $query .= "VALUES ($catch_post_id ,'{$comment_author}', '{$comment_content }', 'elfogadva',now())";
+                        $query .= "VALUES ($catch_post_id ,'{$comment_author}', '{$comment_content }', 'elfogadva','{$comment_date}')";
 
                         $create_comment_query = mysqli_query($connect, $query);
 
@@ -231,6 +235,9 @@ if(!$view_query) {
                        $comment_date   = $row['comment_date'];
                        $comment_content= $row['comment_content'];
                        $comment_author = $row['comment_author'];
+
+                      
+   
                        
                        ?>
                             

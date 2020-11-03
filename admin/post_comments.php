@@ -102,7 +102,6 @@
       $comment_status = $row['comment_status'];
       $comment_date = $row['comment_date'];
 
-
       echo "<tr>";
       ?>
 <td><input class='checkBoxes' type='checkbox' name='checkBoxArray[]' value='<?php echo $comment_id ?>'></td>
