@@ -749,7 +749,10 @@ button.icon-btn {
   background-color:#edeff3;
   padding: 20px;
   
+}
 
+ul.comments {
+  padding: 0px;
 }
 
 .comm {

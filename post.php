@@ -157,7 +157,7 @@ if (isset($_GET['p_id'])) {
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
                           </div>
-                          <input class="form-control" type="text" name="comment_author" value="<?php echo $_SESSION['username']; ?>" disabled>
+                          <input class="form-control" type="text" name="comment_author" value="<?php echo $_SESSION['username']; ?>">
                         </div>
                       </div>
                       <div class="panel-body">
@@ -235,7 +235,7 @@ if (isset($_GET['p_id'])) {
                 ?>
 
 
-                  <ul class="media-list comments">
+                  <ul class="media-list comments mb-4">
                     <li class="media">
                       <div class="media-body">
                         <span class="text-muted pull-right">
