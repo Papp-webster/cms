@@ -735,6 +735,12 @@ button.icon-btn {
 
 
 /* comment*/
+
+.input-group-text {
+  background-color: #3c70e8;
+  color: #fff;
+}
+
 .fa-comment {
    color: #3c70e8;
 }

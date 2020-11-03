@@ -153,8 +153,12 @@ if (isset($_GET['p_id'])) {
 
                     <form action="" method="post" role="form">
                       <div class="form-group">
-                        <label for="user">Név:</label>
-                        <input type="text" class="form-control" name="comment_author" value=" <?php echo $_SESSION['username']; ?>">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                          </div>
+                          <input class="form-control" type="text" name="comment_author" value="<?php echo $_SESSION['username']; ?>" disabled>
+                        </div>
                       </div>
                       <div class="panel-body">
                         <textarea name="comment_content" class="form-control" placeholder="írj egy kommentet.." rows="3"></textarea>
