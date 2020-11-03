@@ -118,8 +118,8 @@ if (isset($_POST['checkBoxArray'])) {
 
 
       echo "<td>$comment_date</td>";
-      echo "<td><a href='comments.php?elfogadva=$comment_id'class ='btn btn-success'>Elfogad</a></td>";
-      echo "<td><a href='comments.php?elutasítva=$comment_id'class ='btn btn-warning'>Elutasít</a></td>";
+      echo "<td><a href='comments.php?elfogadva=$comment_id' class ='btn btn-success'>Elfogad</a></td>";
+      echo "<td><a href='comments.php?elutasítva=$comment_id' class ='btn btn-warning'>Elutasít</a></td>";
       echo "<td><a onClick=\"javascript: return confirm('Biztos hogy törölni akarod?'); \" href='comments.php?delete=$comment_id' class='btn btn-danger'>Töröl</a></td>";
       echo "</tr>";
 

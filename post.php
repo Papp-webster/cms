@@ -165,7 +165,7 @@ if (isset($_GET['p_id'])) {
                     <div class="needlogin"><a class="login-like left" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a></div>
 
 
-                  <?php endif ?>
+                  <?php endif; ?>
 
 
 

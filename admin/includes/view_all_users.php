@@ -67,10 +67,10 @@
 
 
 
-      echo "<td><a href='users.php?admin=$user_id'>admin</a></td>";
-      echo "<td><a href='users.php?subscriber=$user_id'>Feliraktozó</a></td>";
-      echo "<td><a href='users.php?source=edit_user&edit_user=$user_id'>Változtat</a></td>";
-      echo "<td><a href='users.php?delete=$user_id'>Töröl</a></td>";
+      echo "<td><a href='users.php?admin=$user_id' class ='btn btn-success'>admin</a></td>";
+      echo "<td><a href='users.php?subscriber=$user_id' class ='btn btn-info'>Feliraktozó</a></td>";
+      echo "<td><a href='users.php?source=edit_user&edit_user=$user_id' class ='btn btn-primary'>Változtat</a></td>";
+      echo "<td><a href='users.php?delete=$user_id' class ='btn btn-danger'>Töröl</a></td>";
       echo "</tr>";
 
 
