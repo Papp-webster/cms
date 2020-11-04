@@ -39,6 +39,18 @@ if (isset($_POST['update_user'])) {
 
 move_uploaded_file($user_image_temp, "$location/$user_image" );
 
+if (!empty($user_password)) {
+  $query_pass = "SELECT user_password FROM users WHERE user_id = $the_user_id";
+  $get_user = mysqli_query($connect, $query_pass);
+  
+  conFirm($get_user);
+  $row = mysqli_fetch_array($get_user);
+  $db_user_pass = $row['user_password'];
+  
+  if ($db_user_pass != $user_password) {
+   $hash_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+  }
+
 
 $query = "UPDATE users SET ";
 $query .="user_firstname ='{$user_firstname}', ";
@@ -47,16 +59,18 @@ $query .="user_role = '{$user_role}', ";
 $query .="user_image = '{$user_image}', ";
 $query .="user_name ='{$user_name}', ";
 $query .="user_email ='{$user_email}', ";
-$query .="user_password ='{$user_password}' ";
+$query .="user_password ='{$hash_password}' ";
 $query .="WHERE user_name = '{$username}' ";
 
 $edit_query = mysqli_query($connect,$query);
 
 conFirm($edit_query);
+echo "Felhasználó változtatva! Elérhető itt:" . "<a href='users.php'> Felhasználók</a>";
 
+}
 
-
-
+}else {
+  header("Location: index.php");
 }
 
 
