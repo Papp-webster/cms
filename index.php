@@ -144,7 +144,7 @@
                       <li><span class="fa fa-eye"></span> <?php echo $post_views; ?></li>
                       <li><span class="fa fa-clock-o"></span> <?php echo $post_date; ?></li>
                     </ul>
-                    <p><?php echo $post_tartalom ?></p>
+                    <p class="mb-4"><?php echo $post_tartalom ?></p>
                     <a class="btn comm mb-4" href="post.php?p_id=<?php echo $post_id; ?>">Tovább olvasom..</a>
                   </div>
 

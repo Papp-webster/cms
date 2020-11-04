@@ -138,8 +138,7 @@ if (isset($_GET['p_id'])) {
           <p><?php echo $post_tartalom ?></p>
 
           <?php mysqli_stmt_free_result($stmt); ?>
-          <div class="pull-left liked">Likes: (<?php getLiked($catch_post_id); ?>)</div>
-          <div class="clearfix"></div>
+         
           <!-- Comments Form -->
 
           <div class="row">
@@ -148,8 +147,6 @@ if (isset($_GET['p_id'])) {
                 <div class="panel panel-info">
 
                   <?php if (isLoggedIn()) : ?>
-
-                    <p class="pull-right"><a class="<?php echo userLiked($catch_post_id) ? 'unlike' : 'like' ?>" href=""><span><i class="fas fa-thumbs-up"></i></span> <?php echo userLiked($catch_post_id) ? 'Unlike' : 'Like' ?></a></p>
 
                     <form class="mt-4" action="" method="post" role="form">
                       <h4 class="leader">Név: <?php echo $_SESSION['username']; ?></h4>
@@ -161,7 +158,7 @@ if (isset($_GET['p_id'])) {
 
 
                   <?php else : ?>
-                    <div class="ilogin">A Hozzászóláshoz és likehoz bejelentkezés szükséges.</div>
+                    <div class="ilogin">A Hozzászóláshoz bejelentkezés szükséges.</div>
                     <div class="needlogin"><a class="login-like left" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a></div>
 
 
@@ -268,43 +265,4 @@ if (isset($_GET['p_id'])) {
 
 
     <?php include "includes/footer.php"; ?>
-    <script>
-      $(document).ready(function() {
-
-        var user_id = <?php echo loggedInUserId(); ?>;
-        var post_id = <?php echo $catch_post_id; ?>
-
-
-
-        //LIKE
-
-        $('.like').click(function() {
-          $.ajax({
-            url: "/cms/post.php?p_id=<?php echo $catch_post_id; ?>",
-            type: 'post',
-            data: {
-              'liked': 1,
-              'post_id': post_id,
-              'user_id': user_id
-
-            }
-          });
-        });
-
-        // UNLIKE
-
-        $('.unlike').click(function() {
-          $.ajax({
-            url: "/cms/post.php?p_id=<?php echo $catch_post_id; ?>",
-            type: 'post',
-            data: {
-              'unliked': 1,
-              'post_id': post_id,
-              'user_id': user_id
-
-            }
-          });
-        });
-
-      })
-    </script>
+    
