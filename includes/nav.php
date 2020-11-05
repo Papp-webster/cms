@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark main-navigation">
   <div class="container-fluid">
-    <a class="navbar-brand order-2 order-lg-1 mr-auto mr-lg-3 ml-3 ml-lg-0" href="/cms"><img src="/cms/img/logo02.png" alt="logo"></a>
+    <a class="navbar-brand" href="/cms"><img src="/cms/img/logo02.png" alt="logo"></a>
     <button class="navbar-toggler" type="button">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,19 @@
         }
         ?>
 
-        <?php if (is_admin($_SESSION['username'])) : ?>
+       
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+      <form class="form-inline d-flex px-3 px-lg-2" action="/cms/search" method="post">
+        <div class="input-group icon-border">
+          <input class="form-control form-control-sm  w-70" name="search" type="text" placeholder="Keresés..">
+          <div class=" input-group-append">
+            <button class="icon-btn" name="send"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+
+      <?php if (is_admin($_SESSION['username'])) : ?>
           <li>
             <a class="nav-link px-3 px-lg-2" href="/cms/admin" target="_blank">Admin</a>
           </li>
@@ -83,15 +95,7 @@
       </li>
     <?php endif; ?>
 
-      </ul>
-      <form class="form-inline d-flex px-3 px-lg-2" action="/cms/search" method="post">
-        <div class="input-group icon-border">
-          <input class="form-control form-control-sm  w-70" name="search" type="text" placeholder="Keresés..">
-          <div class=" input-group-append">
-            <button class="icon-btn" name="send"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </form>
+    </ul>
 
     </div>
   </div>
