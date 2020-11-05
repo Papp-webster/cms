@@ -55,7 +55,7 @@
 
         ?>
 
-        <li>
+        
           <?php if (isset($_SESSION['user_role'])) : ?>
 
             <?php if (empty($_SESSION['user_image'])) : ?>
