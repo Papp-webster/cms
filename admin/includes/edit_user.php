@@ -112,12 +112,12 @@ echo "Felhasználó változtatva! Elérhető itt:" . "<a href='users.php'> Felha
   </div>
 
   <div class="form-group">
-    <label for="post_author">Név</label>
+    <label for="Name">Név</label>
     <input type="text" value="<?php echo $user_name ?>" class="form-control" name="user_name">
   </div>
 
 <div class="form-group">
-    <label for="post_tags">Email</label>
+    <label for="email">Email</label>
     <input type="email" value="<?php echo $user_email ?>" class="form-control" name="user_email">
   </div>
 

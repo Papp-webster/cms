@@ -138,7 +138,8 @@ function email_exists($email) {
       }
 
  //login
-function login_user($username, $password) {
+
+ function login_user($username, $password) {
 
   global $connect;
   $username = trim($username);
