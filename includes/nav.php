@@ -33,6 +33,12 @@
           </li>
         <?php endif; ?>
 
+        <?php if ($_SESSION['username']) : ?>
+          <li>
+            <a class="nav-link px-3 px-lg-2" href="/cms/profile.php" target="_blank">Profil</a>
+          </li>
+        <?php endif; ?>
+
 
 
         <?php
