@@ -5,8 +5,6 @@
     <tr class="line">
       <th>#</th>
       <th>Név</th>
-      <th>Családi név</th>
-      <th>Utónév</th>
       <th>Email</th>
       <th>Kép</th>
       <th>Role</th>
