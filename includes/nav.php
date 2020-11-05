@@ -27,28 +27,16 @@
         }
         ?>
 
-       
-      </ul>
-      <ul class="nav navbar-nav ml-auto">
-      <form class="form-inline d-flex px-3 px-lg-2" action="/cms/search" method="post">
-        <div class="input-group icon-border">
-          <input class="form-control form-control-sm  w-70" name="search" type="text" placeholder="Keresés..">
-          <div class=" input-group-append">
-            <button class="icon-btn" name="send"><i class="fa fa-search"></i></button>
-          </div>
-        </div>
-      </form>
-
-      <?php if (is_admin($_SESSION['username'])) : ?>
-          <li>
-            <a class="nav-link px-3 px-lg-2" href="/cms/admin" target="_blank">Admin</a>
-          </li>
+        <?php if (is_admin($_SESSION['username'])) : ?>
+        <li>
+          <a class="nav-link px-3 px-lg-2" href="/cms/admin" target="_blank">Admin</a>
+        </li>
         <?php endif; ?>
 
         <?php if ($_SESSION['username']) : ?>
-          <li>
-            <a class="nav-link px-3 px-lg-2" href="/cms/profile.php" target="_blank">Profil</a>
-          </li>
+        <li>
+          <a class="nav-link px-3 px-lg-2" href="/cms/profile.php" target="_blank">Profil</a>
+        </li>
         <?php endif; ?>
 
 
@@ -67,35 +55,54 @@
 
         ?>
 
-        
-          <?php if (isset($_SESSION['user_role'])) : ?>
 
-            <?php if (empty($_SESSION['user_image'])) : ?>
+
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+
+        <?php if (isset($_SESSION['user_role'])) : ?>
+
+        <?php if (empty($_SESSION['user_image'])) : ?>
         <li>
 
-          <img class="img-responsive rounded-circle" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" width="40" alt="default picture"></li>
+          <img class="img-responsive rounded-circle"
+            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            width="40" alt="default picture"></li>
 
-      <?php else : ?>
-        <li class="nav-item"><img class="img-responsive rounded-circle" src="/cms/img/<?php echo $_SESSION['user_image']; ?>" width="40" alt="User picture"></li>
+        <?php else : ?>
+        <li class="nav-item"><img class="img-responsive rounded-circle"
+            src="/cms/img/<?php echo $_SESSION['user_image']; ?>" width="40" alt="User picture"></li>
 
 
-      <?php endif; ?>
-      <li class="nav-item"><span class="users">
-          <strong>Üdvözöljük,</strong>
-          <?php echo $_SESSION['username']; ?>
-        </span></li>
+        <?php endif; ?>
+        <li class="nav-item"><span class="users">
+            <strong>Üdvözöljük,</strong>
+            <?php echo $_SESSION['username']; ?>
+          </span></li>
 
-      <li class="nav-item"><a class="nav-link px-3 px-lg-2" href="/cms/includes/logout.php">
-          <i class="fa fa-power-off"></i>
-          <strong>Kilépés</strong>
-        </a></li>
-    <?php else : ?>
-      <li class="nav-item">
-        <a class="nav-link px-3 px-lg-2" href="#" data-target="#login" data-toggle="modal"><i class="fa fa-user-plus"></i> Bejelentkezés</a>
-      </li>
-    <?php endif; ?>
+        <li class="nav-item"><a class="nav-link px-3 px-lg-2" href="/cms/includes/logout.php">
+            <i class="fa fa-power-off"></i>
+            <strong>Kilépés</strong>
+          </a></li>
+        <?php else : ?>
+        <li class="nav-item">
+          <a class="nav-link px-3 px-lg-2" href="#" data-target="#login" data-toggle="modal"><i
+              class="fa fa-user-plus"></i> Bejelentkezés</a>
+        </li>
+        <?php endif; ?>
 
-    </ul>
+
+        <form class="form-inline d-flex px-3 px-lg-2" action="/cms/search" method="post">
+          <div class="input-group icon-border">
+            <input class="form-control form-control-sm  w-70" name="search" type="text" placeholder="Keresés..">
+            <div class=" input-group-append">
+              <button class="icon-btn" name="send"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+
+
+      </ul>
 
     </div>
   </div>
@@ -218,10 +225,12 @@
         </div>
         <h1 id="form-main" class="text-center">Bejelentkezés</h1>
         <form id="registration-form" action="/cms/" autocomplete="off" method="post">
-          <input class="user form-control" type="text" name="username" value="<?php echo isset($username) ? $username : '' ?>" placeholder="Felhasználó név">
+          <input class="user form-control" type="text" name="username"
+            value="<?php echo isset($username) ? $username : '' ?>" placeholder="Felhasználó név">
           <p class="error text-center"><?php echo isset($error['username']) ?  $error['username'] : '' ?> </p>
 
-          <input class="user form-control" type="email" name="email" value="<?php echo isset($email) ? $email : '' ?>" placeholder="E-mail">
+          <input class="user form-control" type="email" name="email" value="<?php echo isset($email) ? $email : '' ?>"
+            placeholder="E-mail">
           <p class="error text-center"><?php echo isset($error['email']) ?  $error['email'] : '' ?> </p>
 
           <input class="user form-control" type="password" name="pass" placeholder="Jelszó">
