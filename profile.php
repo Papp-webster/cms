@@ -47,6 +47,9 @@ if ($db_user_pass != $user_password) {
  $hash_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
 }
 
+if ($_POST["user_password"] === $_POST["confirm_password"]) {
+  $hash_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 12));
+  $msg['confirmPassword'] = 'A jelszó egyezik!';
 $query = "UPDATE users SET ";
 $query .="user_image = '{$user_image}', ";
 $query .="user_name ='{$user_name}', ";
@@ -58,7 +61,10 @@ $edit_query = mysqli_query($connect,$query);
 
 conFirm($edit_query);
 
-echo "Felhasználó változtatva!";
+echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtatva!</div>";
+} else {
+  $msg['confirmPassword'] = 'A jelszó nem egyezik!';
+}
 
 
 }
@@ -84,7 +90,13 @@ echo "Felhasználó változtatva!";
                   <div class="col-12 col-sm-auto mb-3">
                     <div class="mx-auto" style="width: 140px;">
                       <div class="d-flex justify-content-center align-items-center rounded">
-                      <img src="img/<?php echo $user_image ?>" width="150" alt="felhasználó képe">
+                        <?php if (empty($_SESSION['user_image'])) : ?>
+                        <img class="img-fluid"
+                          src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+                          width="150" alt="default picture"></li>
+                        <?php else : ?>
+                        <img class="img-fluid" src="img/<?php echo $user_image ?>" width="150" alt="felhasználó képe">
+                        <?php endif; ?>
                       </div>
                     </div>
                   </div>
@@ -94,11 +106,11 @@ echo "Felhasználó változtatva!";
                       </h4>
                       <span class="badge badge-info"><?php echo $user_role ?></span>
                       <div class="mt-2">
-                      <form class="form" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                          <label for="user_img">Kép feltöltése</label>
-                          <input type="file" class="form-control-file" name="image">
-                        </div>
+                        <form class="form" method="post" enctype="multipart/form-data">
+                          <div class="form-group">
+                            <label for="user_img">Kép feltöltése</label>
+                            <input type="file" class="form-control-file" name="image">
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -109,53 +121,53 @@ echo "Felhasználó változtatva!";
                 <div class="tab-content pt-3">
                   <div class="tab-pane active">
                     <div class="row">
-                        <div class="col">
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="Name">Név</label>
-                                <input type="text" value="<?php echo $user_name ?>" class="form-control"
-                                  name="user_name">
-                              </div>
+                      <div class="col">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label for="Name">Név</label>
+                              <input type="text" value="<?php echo $user_name ?>" class="form-control" name="user_name">
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" value="<?php echo $user_email ?>" class="form-control"
-                                  name="user_email">
-                              </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" value="<?php echo $user_email ?>" class="form-control"
+                                name="user_email">
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div class="col-12 col-sm-6 mb-3">
-                          <div class="mb-2"><b>Jelszó változtatás:</b></div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="email">Jelszó</label>
-                                <input autocomplete="off" type="password" class="form-control" name="user_password">
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col">
-                              <div class="form-group">
-                                <label for="pass">Jelszó újra</label>
-                                <input class="form-control" type="password" placeholder="••••••"></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12 col-sm-6 mb-3">
+                        <div class="mb-2"><b>Jelszó változtatás:</b></div>
+                        <p class="error text-center"><?php echo isset($msg['confirmPassword'])?  $msg['confirmPassword'] : ''?> </p>
+                        <p class="error text-center"><?php echo isset($msg['password'])?  $msg['password'] : ''?> </p>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label for="email">Jelszó</label>
+                              <input autocomplete="off" type="password" class="form-control" name="user_password">
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col d-flex justify-content-end">
-                          <button class="btn btn-primary" type="submit" name="edit_user"
-                            value="add_user">Mentés</button>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label for="pass">Jelszó újra</label>
+                              <input class="form-control" type="password" name="confirm_password"></div>
+                          </div>
                         </div>
                       </div>
+                    </div>
+                    <div class="row">
+                      <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit" name="edit_user" value="add_user">Mentés</button>
+                      </div>
+                    </div>
                     </form>
 
                   </div>
