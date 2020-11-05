@@ -68,13 +68,7 @@
                     <li>
                         <a href="users.php">Összes Felhasználó</a>
                     </li>
-                    <li>
-                        <a href="users.php?source=add_users">Új Felhasználók</a>
-                    </li>
                 </ul>
-            </li>
-            <li>
-                <a href="profile.php"><i class="fa fa-fw fa-dashboard"></i> Profil</a>
             </li>
         </ul>
     </div>
