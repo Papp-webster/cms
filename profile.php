@@ -109,7 +109,7 @@ echo "<span class='badge badge-info'>Felhasználó változtatva!<span>";
                       </div>
                     </div>
                     <div class="text-center text-sm-right">
-                      <span class="badge badge-secondary"><?php echo $user_role ?></span>
+                      <span class="badge badge-info"><?php echo $user_role ?></span>
                     </div>
                   </div>
                 </div>
