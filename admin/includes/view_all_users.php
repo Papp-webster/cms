@@ -28,8 +28,6 @@
       $user_id = escape($row['user_id']);
       $user_name = escape($row['user_name']);
       $user_password = escape($row['user_password']);
-      $user_firstname = escape($row['user_firstname']);
-      $user_lastname = escape($row['user_lastname']);
       $user_email = escape($row['user_email']);
       $user_image = escape($row['user_image']);
       $user_role = escape($row['user_role']);
@@ -38,9 +36,6 @@
       echo "<tr>";
       echo "<td>$user_id</td>";
       echo "<td>$user_name</td>";
-      echo "<td>$user_firstname</td>";
-      echo "<td>$user_lastname</td>";
-
       //$query = "SELECT * FROM kategoriak WHERE cat_id = $post_cat_id";
       //$edit_categories = mysqli_query($connect, $query);
 

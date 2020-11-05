@@ -13,8 +13,6 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
   $user_id = escape($row['user_id']);
   $user_name = escape($row['user_name']);
   $user_password = escape($row['user_password']);
-  $user_firstname = escape($row['user_firstname']);
-  $user_lastname = escape($row['user_lastname']);
   $user_email = escape($row['user_email']);
   $user_image = escape($row['user_image']);
   $user_role = escape($row['user_role']);
@@ -25,15 +23,11 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
 <?php
 
 if (isset($_POST['edit_user'])) {
-
-  $user_firstname = $_POST['user_firstname'];
-  $user_lastname = $_POST['user_lastname'];
-
-  $user_role = $_POST['user_role'];
-  $location = "../img";
+  
+  
+  $location = "img";
   $user_image = $_FILES['image']['name'];
   $user_image_temp = $_FILES['image']['tmp_name'];
-
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
@@ -42,7 +36,7 @@ if (isset($_POST['edit_user'])) {
   move_uploaded_file($user_image_temp, "$location/$user_image" );
 
 if (!empty($user_password)) {
-$query_pass = "SELECT user_password FROM users WHERE user_id = $the_user_id";
+$query_pass = "SELECT user_password FROM users WHERE user_id = $user_id";
 $get_user = mysqli_query($connect, $query_pass);
 
 conFirm($get_user);
@@ -54,20 +48,17 @@ if ($db_user_pass != $user_password) {
 }
 
 $query = "UPDATE users SET ";
-$query .="user_firstname ='{$user_firstname}', ";
-$query .="user_lastname ='{$user_lastname}', ";
-$query .="user_role = '{$user_role}', ";
 $query .="user_image = '{$user_image}', ";
 $query .="user_name ='{$user_name}', ";
 $query .="user_email ='{$user_email}', ";
 $query .="user_password ='{$hash_password}' ";
-$query .="WHERE user_id = {$the_user_id} ";
+$query .="WHERE user_id = {$user_id} ";
 
 $edit_query = mysqli_query($connect,$query);
 
 conFirm($edit_query);
 
-echo "<span class='badge badge-info'>Felhasználó változtatva!<span>";
+echo "Felhasználó változtatva!";
 
 
 }
@@ -102,6 +93,7 @@ echo "<span class='badge badge-info'>Felhasználó változtatva!<span>";
                       <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Üdvözöljük, <?php echo strtoupper(get_user_name()); ?>
                       </h4>
                       <div class="mt-2">
+                      <form class="form" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                           <label for="user_img">Kép feltöltése</label>
                           <input type="file" class="form-control-file" name="image">
@@ -118,8 +110,7 @@ echo "<span class='badge badge-info'>Felhasználó változtatva!<span>";
                 </ul>
                 <div class="tab-content pt-3">
                   <div class="tab-pane active">
-                    <form class="form" novalidate="">
-                      <div class="row">
+                    <div class="row">
                         <div class="col">
                           <div class="row">
                             <div class="col">
