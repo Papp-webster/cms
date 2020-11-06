@@ -57,6 +57,8 @@ if (!is_admin($_SESSION['username'])) {
                          <tr class="line">
                            <th>#</th>
                            <th>Kategória cím</th>
+                           <th>Változtat</th>
+                           <th>Töröl</th>
                          </tr>
                        </thead>
                        <tbody>
