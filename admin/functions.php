@@ -228,8 +228,8 @@ while ($row = mysqli_fetch_assoc($result)) {
   echo "<tr>";
   echo "<th>{$cat_id}</th>";
   echo "<td>{$cat_cim}</td>";
-  echo "<td><a href='categories.php?delete={$cat_id}' class='btn btn-danger'>Törlés</a></td>";
   echo "<td><a href='categories.php?update={$cat_id}' class='btn btn-primary'>Változtat</a></td>";
+  echo "<td><a href='categories.php?delete={$cat_id}' class='btn btn-danger'>Törlés</a></td>";
   echo "</tr>";
 }
 }

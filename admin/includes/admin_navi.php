@@ -27,7 +27,7 @@
              ?> <i class="fa fa-fw fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a href="/cms/profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                 </li>
               <li class="divider"></li>
                 <li>
