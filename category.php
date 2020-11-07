@@ -78,6 +78,7 @@
                      </ul>
 
                      <p><?php echo substr($post_tartalom, 0,400); ?></p>
+                     <a class="btn comm pull-right mb-4" href="/cms/post.php?p_id=<?php echo $post_id; ?>">Tovább..</a>
                    </div>
                  </div>
                  </div><!--row-->

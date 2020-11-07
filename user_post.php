@@ -39,7 +39,7 @@
 
           <!-- Blog Post -->
 
-          <h3 class="post-title"><a class="author" href="post/<?php echo $post_id; ?>"><?php echo $post_cim ?></a></h3>
+          <h3 class="post-title"><a class="author" href="/cms/post/<?php echo $post_id; ?>"><?php echo $post_cim ?></a></h3>
 
 
           <!-- Blog Post -->
@@ -58,7 +58,7 @@
           </a>
           <hr>
           <p><?php echo $post_tartalom ?></p>
-          <a class="btn comm pull-right mb-4" href="post.php?p_id=<?php echo $post_id; ?>">Tovább..</a>
+          <a class="btn comm pull-right mb-4" href="/cms/post.php?p_id=<?php echo $post_id; ?>">Tovább..</a>
           <div class="clearfix"></div>
 
 
