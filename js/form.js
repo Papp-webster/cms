@@ -16,7 +16,7 @@ overlay.addEventListener("click", closeSideNav);
 
 
 
-// FROM
+// FROM Login
 
 $("#newUser").click(function(){
   $("#form-main").text("Regisztráció");
