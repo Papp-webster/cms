@@ -42,11 +42,11 @@ if (!is_admin($_SESSION['username'])) {
                             include "includes/edit_post.php";
                             break;
 
-                            case '200':
-                              echo "nice 200";
-                              break;
+                            case 'search_post':
+                            include "includes/view_all_search.php";
+                            break;
 
-                        default:
+                          default:
                           include "includes/view_all_posts.php";
                           break;
                       }

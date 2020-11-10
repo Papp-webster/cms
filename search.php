@@ -22,9 +22,7 @@
         $query = "SELECT * FROM posztok WHERE post_tags LIKE '%$search%' OR post_cim LIKE '%$search%' OR post_tartalom LIKE '%$search%'";
         $search_query = mysqli_query($connect, $query);
 
-        if (!$search_query) {
-          die('Az adatbázis kapcsolat hibás! <br>' . mysqli_error($connect));
-        }
+        conFirm($search_query);
 
         $search_count = mysqli_num_rows($search_query);
         if ($search_count == 0) {

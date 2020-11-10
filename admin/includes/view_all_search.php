@@ -1,5 +1,22 @@
 <?php
 
+if (isset($_POST['search_post'])) {
+
+        $search = $_POST['search_post'];
+
+        $query = "SELECT posztok.post_id, posztok.post_author, posztok.post_user, posztok.post_cim, posztok.post_cat_id,posztok.post_status, posztok.post_img, ";
+        $query .= "posztok.post_tags, posztok.post_com_count, posztok.post_date, posztok.post_views, kategoriak.cat_id, kategoriak.cat_cim ";
+        $query .= "FROM posztok ";
+        $query .= " LEFT JOIN kategoriak ON posztok.post_cat_id = kategoriak.cat_id ";
+        $query .= "WHERE posztok.post_cim LIKE '%$search%' OR posztok.post_cat_id LIKE '%$search%' OR posztok.post_tags LIKE '%$search%'";
+        $search_post = mysqli_query($connect, $query);
+
+        conFirm($search_post);
+        $search_count = mysqli_num_rows($search_post);
+        if ($search_count == 0) {
+          echo "<p class='show-post'>Nincs ilyen poszt!</p>";
+        } else {
+
 if (isset($_POST['checkBoxArray'])) {
   foreach ($_POST['checkBoxArray'] as $postValueId) {
   $bulk_options = $_POST['bulk_options'];
@@ -67,16 +84,9 @@ if (isset($_POST['checkBoxArray'])) {
 
 ?>
 
-<form class="form-inline" action="post.php?source=search_post" method="post">
-          <div class="input-group search-panel">
-            <input class="form-control" name="search_post" type="text" placeholder="Keresés..">
-            <div class="input-group-btn">
-              <button class="btn btn-primary" name="search_post"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-        </form>
-
-
+<div class="section-title">
+        <h4 class="title">Talált posztok:</h4>
+      </div>
 
 
 <form class="" action="" method="post">
@@ -126,14 +136,9 @@ if (isset($_POST['checkBoxArray'])) {
 
     <?php
 
-    $query = "SELECT posztok.post_id, posztok.post_author, posztok.post_user, posztok.post_cim, posztok.post_cat_id,posztok.post_status, posztok.post_img, ";
-    $query .= "posztok.post_tags, posztok.post_com_count, posztok.post_date, posztok.post_views, kategoriak.cat_id, kategoriak.cat_cim ";
-    $query .= "FROM posztok ";
-    $query .= " LEFT JOIN kategoriak ON posztok.post_cat_id = kategoriak.cat_id ";
-    $query .= "ORDER BY posztok.post_id DESC ";
-    $select_posts = mysqli_query($connect, $query);
+    
 
-    while ($row = mysqli_fetch_array($select_posts)) {
+    while ($row = mysqli_fetch_array($search_post)) {
       $post_id = escape($row['post_id']);
       $post_author = escape($row['post_author']);
       $post_user = escape($row['post_user']);
@@ -203,13 +208,10 @@ if (isset($_POST['checkBoxArray'])) {
       </form>
 
       <?php
-      //echo "<td><a onClick=\"javascript: return confirm('Biztos hogy törölni akarod?'); \" href='post.php?delete={$post_id}'>Töröl</a></td>";
+      
 
 
       echo "</tr>";
-
-
-
    }
 
 
@@ -239,10 +241,11 @@ if (isset($_GET['reset'])) {
   header("Location: post.php");
 
 }
+        }
 
-
-
+}
 ?>
 
 
 </div>
+
