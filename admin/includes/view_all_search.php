@@ -138,7 +138,7 @@ if (isset($_POST['checkBoxArray'])) {
 
     
 
-    while ($row = mysqli_fetch_array($search_post)) {
+    while ($row = mysqli_fetch_assoc($search_post)) {
       $post_id = escape($row['post_id']);
       $post_author = escape($row['post_author']);
       $post_user = escape($row['post_user']);
