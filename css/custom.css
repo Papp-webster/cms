@@ -548,10 +548,13 @@ padding-top: 8px;
 .masonry-box img,
 .masonry-box {
     width: 100%;
+    height: 100%;
+    
 }
 
 .masonry-box {
     border: 0.34rem solid #fff;
+    max-height: 500px;
 }
 
 .small-box {
@@ -572,6 +575,7 @@ padding-top: 8px;
 .post-media {
     position: relative;
     overflow: hidden;
+    
 }
 
 .shadoweffect {
