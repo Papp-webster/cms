@@ -7,7 +7,7 @@ if (isset($_POST['search_post'])) {
         $query = "SELECT posztok.post_id, posztok.post_author, posztok.post_user, posztok.post_cim, posztok.post_cat_id,posztok.post_status, posztok.post_img, ";
         $query .= "posztok.post_tags, posztok.post_com_count, posztok.post_date, posztok.post_views, kategoriak.cat_id, kategoriak.cat_cim ";
         $query .= "FROM posztok ";
-        $query .= " LEFT JOIN kategoriak ON posztok.post_cat_id = kategoriak.cat_id ";
+        $query .= "LEFT JOIN kategoriak ON posztok.post_cat_id = kategoriak.cat_id ";
         $query .= "WHERE posztok.post_cim LIKE '%$search%' OR posztok.post_cat_id LIKE '%$search%' OR posztok.post_tags LIKE '%$search%'";
         $search_post = mysqli_query($connect, $query);
 
@@ -138,7 +138,7 @@ if (isset($_POST['checkBoxArray'])) {
 
     
 
-    while ($row = mysqli_fetch_array($search_post)) {
+    while ($row = mysqli_fetch_assoc($search_post)) {
       $post_id = escape($row['post_id']);
       $post_author = escape($row['post_author']);
       $post_user = escape($row['post_user']);
