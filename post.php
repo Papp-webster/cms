@@ -211,7 +211,7 @@ if (isset($_GET['p_id'])) {
                 <?php
                 $query = "SELECT * FROM comments WHERE comment_post_id = {$catch_post_id} ";
                 $query .= "AND comment_status = 'elfogadva' ";
-                $query .= "ORDER BY comment_id DESC LIMIT 5";
+                $query .= "ORDER BY comment_id DESC LIMIT 20";
                 $select_comment_query = mysqli_query($connect, $query);
                 conFirm($select_comment_query);
                 while ($row = mysqli_fetch_array($select_comment_query)) {
