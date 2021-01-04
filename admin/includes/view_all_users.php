@@ -47,7 +47,13 @@
 
 
       echo "<td>$user_email</td>";
-      echo "<td><img src='../img/$user_image' width='100''alt='kep'></td>";
+      if(empty($user_image)) {
+        echo "<td><img src='https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg' width='100''alt='kep'></td>";
+       
+      } else {
+        echo "<td><img src='../img/$user_image' width='100''alt='kep'></td>";
+      }
+      
       echo "<td>$user_role</td>";
       //$query = "SELECT * FROM posztok WHERE post_id = $comment_post_id";
       //$select_post_id_query = mysqli_query($connect,$query);

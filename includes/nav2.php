@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark main-navigation">
+<nav class="navbar navbar-expand-lg  fixed-top  main-navigation">
   <div class="container-fluid">
     <a class="navbar-brand" href="/cms"><img src="/cms/img/logo02.png" alt="logo"></a>
     <button class="navbar-toggler" type="button">
@@ -140,7 +140,7 @@
         ];
 
         if (strlen($username) < 4) {
-          $error['username'] = 'Felhasználó név több karater legyen!';
+          $error['username'] = 'Felhasználó név több karakter legyen!';
         }
 
         if ($username == '') {

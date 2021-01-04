@@ -102,8 +102,8 @@ echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtat
                   </div>
                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                     <div class="text-center text-sm-left mb-2 mb-sm-0">
-                      <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">Üdvözöljük, <?php echo strtoupper(get_user_name()); ?>
-                      </h4>
+                      <h5 class="pt-sm-2 pb-1 mb-0 text-nowrap">Üdvözöljük, <?php echo get_user_name(); ?>
+                      </h5>
                       <span class="badge badge-info"><?php echo $user_role ?></span>
                       <div class="mt-2">
                         <form class="form" method="post" enctype="multipart/form-data">

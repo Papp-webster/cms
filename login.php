@@ -12,7 +12,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require './vendor/autoload.php';
 
-if(ifItIsMethod('post')){
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $username = trim($_POST['username']);
   $email = trim($_POST['email']);
@@ -27,7 +27,7 @@ if(ifItIsMethod('post')){
   ];
 
   if (strlen($username) < 4) {
-    $error['username'] = 'Felhasználó név több karater legyen!';
+    $error['username'] = 'Felhasználó név több karakter legyen!';
   }
 
   if ($username == '') {
@@ -93,6 +93,9 @@ if(ifItIsMethod('post')){
       $error['email'] = 'Sikertelen küldés!';
     }
   }
+
+
+
   if(isset($_POST['user_name']) && isset($_POST['user_password'])){
 
     login_user($_POST['user_name'], $_POST['user_password']);
@@ -104,8 +107,8 @@ if(ifItIsMethod('post')){
     redirect('/cms/profile.php');
 }
     
+  }
 
-}
 
 
 
@@ -118,7 +121,7 @@ if(ifItIsMethod('post')){
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default mb-4">
-                <div class="panel-body mt-4">
+                <div class="panel-bodies mt-4">
                     <div class="other-options">
                         <div class="option" id="newUser">
                             <p class="option-text"><i class="fa fa-user-plus"></i> Regisztráció</p>

@@ -56,7 +56,7 @@ float: left;
   transform: scale(1.2)
 }
 
-.panel-body{
+.panel-bodies {
   width: 100%;
   height: 600px;
   background: linear-gradient(to bottom right,#3c70e8,#5AB9EA);

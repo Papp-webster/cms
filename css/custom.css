@@ -79,12 +79,18 @@ a.nav-link {
   z-index: 1031;
 }
 
+.main-navigation {
+  background-color: #282828;
+}
+
 .main-navigation.active .sidebar {
   left: 0;
+   background-color: #282828;
 }
 
 .main-navigation.active .overlay {
   visibility: visible;
+   
 }
 
 @media (min-width: 992px) {
@@ -122,7 +128,17 @@ a.nav-item {
   transition: 0.3s;
 }
 
+.navbar-toggler {
+ background-color:#3c70e8;
+ color: #fff;
+ 
+}
 
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+}
 
 /* Top and Bottom borders go out */
 .navbar-nav .nav-link:before, .navbar-nav .nav-link:after

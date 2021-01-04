@@ -1,13 +1,13 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark main-navigation">
+<nav class="navbar navbar-expand-lg fixed-top main-navigation">
   <div class="container-fluid">
     <a class="navbar-brand" href="/cms"><img src="/cms/img/logo02.png" alt="logo"></a>
     <button class="navbar-toggler" type="button">
-      <span class="navbar-toggler-icon"></span>
+      <i class="fa fa-bars"></i>
     </button>
     <div class="overlay d-flex d-lg-none"></div>
     <!-- Collection of nav links, forms, and other content for toggling -->
-    <div class="order-lg-2 bg-dark d-lg-flex w-100 sidebar pb-3 pb-lg-0">
+    <div class="order-lg-2 d-lg-flex w-100 sidebar pb-3 pb-lg-0">
       <ul class="nav navbar-nav mr-lg-auto mb-2 mb-lg-0">
         <?php
 
