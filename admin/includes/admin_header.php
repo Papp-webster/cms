@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_role'])) {
     <meta name="author" content="">
 
     <title>TESZ Admin</title>
-
+    <link rel="icon" type="image/gif" href="../img/icon.png">
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">

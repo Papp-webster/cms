@@ -15,12 +15,12 @@ body {
   height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #525965;
+  background: #3c70e8;
   border: 0px none #ffffff;
   border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #525965;
+  background: #3c70e8;
 }
 ::-webkit-scrollbar-thumb:active {
   background: #525965;

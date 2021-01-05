@@ -102,7 +102,7 @@ $version = 1;
 <script src="/cms/js/pageloader.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/swiped-events.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/form.js?data=<?php echo $version; ?>"></script>
-<script src="/cms/js/jqBootstrapValidation.js?data=<?php echo $version; ?>"></script>
+<script src="/cms/js/jqBootstrapValidation.min.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/contact.js?data=<?php echo $version; ?>"></script>
 
 </body>
