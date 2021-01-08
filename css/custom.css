@@ -564,13 +564,13 @@ padding-top: 8px;
 .masonry-box img,
 .masonry-box {
     width: 100%;
-    height: auto;
+    height: 100%;
     
 }
 
 .masonry-box {
     border: 0.34rem solid #fff;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 .small-box {
