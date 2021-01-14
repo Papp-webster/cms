@@ -107,7 +107,7 @@ if (isset($_GET['delete'])) {
    if ($_SESSION['user_role'] == 'admin') {
    $target = "../img02/$user_image";
    unlink($target);
-   $d_user_id = mysqli_real_escape_string($connect, $_GET['delete']);
+   $d_user_id = escape($connect, $_GET['delete']);
    $query = "DELETE FROM users WHERE user_id = {$d_user_id}";
    $delete_query = mysqli_query($connect, $query);
    header("Location: users.php");
