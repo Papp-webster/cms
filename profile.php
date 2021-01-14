@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
 if (isset($_POST['edit_user'])) {
   
   
-  $location = "img";
+  $location = "img02";
   $user_image = $_FILES['image']['name'];
   $user_image_temp = $_FILES['image']['tmp_name'];
   $user_name = $_POST['user_name'];
@@ -95,7 +95,7 @@ echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtat
                           src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
                           width="150" alt="default picture"></li>
                         <?php else : ?>
-                        <img class="img-fluid" src="img/<?php echo $user_image ?>" width="150" alt="felhasználó képe">
+                        <img class="img-fluid" src="img02/<?php echo $user_image ?>" width="150" alt="felhasználó képe">
                         <?php endif; ?>
                       </div>
                     </div>
@@ -108,7 +108,7 @@ echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtat
                       <div class="mt-2">
                         <form class="form" method="post" enctype="multipart/form-data">
                           <div class="form-group">
-                            <label for="user_img">Kép feltöltése</label>
+                            <label for="user_img">Kép feltöltése max(170X170)</label>
                             <input type="file" class="form-control-file" name="image">
                           </div>
                       </div>

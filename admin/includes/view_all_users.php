@@ -51,7 +51,7 @@
         echo "<td><img src='https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg' width='100''alt='kep'></td>";
        
       } else {
-        echo "<td><img src='../img/$user_image' width='100''alt='kep'></td>";
+        echo "<td><img src='../img02/$user_image' width='100''alt='kep'></td>";
       }
       
       echo "<td>$user_role</td>";
@@ -105,11 +105,12 @@ if (isset($_GET['delete'])) {
 
  if (isset($_SESSION['user_role'])) {
    if ($_SESSION['user_role'] == 'admin') {
-
-  $d_user_id = mysqli_real_escape_string($connect, $_GET['delete']);
-  $query = "DELETE FROM users WHERE user_id = {$d_user_id}";
-  $delete_query = mysqli_query($connect, $query);
- header("Location: users.php");
+   $target = "../img02/$user_image";
+   unlink($target);
+   $d_user_id = mysqli_real_escape_string($connect, $_GET['delete']);
+   $query = "DELETE FROM users WHERE user_id = {$d_user_id}";
+   $delete_query = mysqli_query($connect, $query);
+   header("Location: users.php");
  }
 }
 }

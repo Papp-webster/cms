@@ -224,6 +224,8 @@ if (isset($_POST['checkBoxArray'])) {
 if (isset($_POST['delete'])) {
   if (isset($_SESSION['user_role'])) {
   if ($_SESSION['user_role'] == 'admin') {
+  $target = "../img/$post_img";
+  unlink($target);
   $d_post_id = escape($_POST['post_id']);
   $query = "DELETE FROM posztok WHERE post_id = {$d_post_id}";
   $delete_query = mysqli_query($connect, $query);

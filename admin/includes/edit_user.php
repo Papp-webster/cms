@@ -10,8 +10,6 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
   $user_id = escape($row['user_id']);
   $user_name = escape($row['user_name']);
   $user_password = escape($row['user_password']);
-  $user_firstname = escape($row['user_firstname']);
-  $user_lastname = escape($row['user_lastname']);
   $user_email = escape($row['user_email']);
   $user_image = escape($row['user_image']);
   $user_role = escape($row['user_role']);
@@ -23,11 +21,8 @@ while ($row = mysqli_fetch_assoc($select_users_query)) {
 
 if (isset($_POST['edit_user'])) {
 
-  $user_firstname = $_POST['user_firstname'];
-  $user_lastname = $_POST['user_lastname'];
-
   $user_role = $_POST['user_role'];
-  $location = "../img";
+  $location = "../img02";
   $user_image = $_FILES['image']['name'];
   $user_image_temp = $_FILES['image']['tmp_name'];
 
@@ -51,8 +46,6 @@ if ($db_user_pass != $user_password) {
 }
 
 $query = "UPDATE users SET ";
-$query .="user_firstname ='{$user_firstname}', ";
-$query .="user_lastname ='{$user_lastname}', ";
 $query .="user_role = '{$user_role}', ";
 $query .="user_image = '{$user_image}', ";
 $query .="user_name ='{$user_name}', ";
@@ -79,16 +72,7 @@ echo "Felhasználó változtatva! Elérhető itt:" . "<a href='users.php'> Felha
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="post_cim">Családi név</label>
-    <input type="text" value="<?php echo $user_firstname ?>" class="form-control" name="user_firstname">
-  </div>
-
-  <div class="form-group">
-    <label for="post_status">Utónév</label>
-    <input type="text" value="<?php echo $user_lastname ?>" class="form-control" name="user_lastname">
-  </div>
-
+  
   <div class="form-group">
     <select name="user_role" id="">
       <option value="<?php echo $user_role ?>"><?php echo $user_role; ?></option>
