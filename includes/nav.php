@@ -35,7 +35,7 @@
 
         <?php if ($_SESSION['username']) : ?>
         <li>
-          <a class="nav-link px-3 px-lg-2" href="/cms/profile.php" target="_blank">Profil</a>
+          <a class="nav-link px-3 px-lg-2" href="/cms/profile" target="_blank">Profil</a>
         </li>
         <?php endif; ?>
 
@@ -72,16 +72,13 @@
         <?php else : ?>
         <li class="nav-item"><img class="img-responsive rounded-circle ml-3"
             src="/cms/img02/<?php echo $_SESSION['user_image']; ?>" width="40" alt="User picture">
+            <?php endif; ?>
             <span class="users">
             <strong>Üdvözöljük,</strong>
             <?php echo $_SESSION['username']; ?>
             </span>
           </li>
-
-
-        <?php endif; ?>
-        
-
+          
         <li class="nav-item"><a class="nav-link px-3 px-lg-2" href="/cms/includes/logout.php">
             <i class="fa fa-power-off"></i>
             <strong>Kilépés</strong>
@@ -152,6 +149,8 @@
         if (userName_exists($username)) {
           $error['username'] = 'Felhasználó név foglalt!';
         }
+
+        
 
 
 

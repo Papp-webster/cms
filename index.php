@@ -98,7 +98,7 @@
         $allcount = $allcount_fetch['allcount'];
 
 
-        $query = "SELECT * FROM posztok ORDER BY post_id asc limit 0,$rowperpage";
+        $query = "SELECT * FROM posztok ORDER BY post_id ASC limit 0,$rowperpage";
         $select_all_post = mysqli_query($connect, $query);
         while ($row = mysqli_fetch_assoc($select_all_post)) {
           $post_id = $row['post_id'];

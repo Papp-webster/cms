@@ -31,7 +31,7 @@ if (isset($_POST['edit_user'])) {
   $user_name = $_POST['user_name'];
   $user_email = $_POST['user_email'];
   $user_password = $_POST['user_password'];
-  $post_date = date('d-m-y');
+  
 
   move_uploaded_file($user_image_temp, "$location/$user_image" );
 
@@ -108,7 +108,7 @@ echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtat
                       <div class="mt-2">
                         <form class="form" method="post" enctype="multipart/form-data">
                           <div class="form-group">
-                            <label for="user_img">Kép feltöltése max(170X170)</label>
+                            <label for="user_img">Kép feltöltése max(170X170 méret)</label>
                             <input type="file" class="form-control-file" name="image">
                           </div>
                       </div>

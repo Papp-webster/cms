@@ -135,6 +135,8 @@ function email_exists($email) {
          $register_user_query = mysqli_query($connect, $query);
          conFirm($register_user_query);
 
+         
+
       }
 
  //login
