@@ -19,7 +19,7 @@
     </div>
   </div>
   <div class="copy">&copy; MSZTESZ Élhető Mátészalka</div>
-  <div class="dmtop">Scroll to Top</div>
+  <div class="dmtop"></div>
   <!-- modal email -->
 
   <div class="modal fade" id="emailmodal" tabindex="-1" role="dialog" aria-labelledby="emailmodal" aria-hidden="true">

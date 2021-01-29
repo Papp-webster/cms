@@ -230,7 +230,13 @@ if (isset($_GET['p_id'])) {
                   <ul class="media-list comments mb-4">
                     <li class="media">
                       <div class="media-body">
+                      <?php if (empty($comment_images)) : ?>
+                      <img class="img-responsive rounded-circle mr-3"
+            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+            width="40" alt="default picture">
+              <?php else : ?>
                       <img class="img-responsive rounded-circle mr-3" src="/cms/img02/<?php echo $comment_images ?>" width="40" alt="User picture">
+                        <?php endif; ?>
                         <span class="text-muted pull-right">
                           <small class="text-muted"> <?php echo $comment_date; ?></small>
                         </span>
