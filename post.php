@@ -200,7 +200,7 @@ if (isset($_GET['p_id'])) {
                           <small class="text-muted"> <?php echo $comment_date; ?></small>
                         </span>
                         <strong class="text-primary"><?php echo $comment_author; ?></strong>
-                        <p>
+                        <p class="mt-2">
                           <?php echo $comment_content; ?>
                         </p>
                       </div>
