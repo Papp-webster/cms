@@ -171,7 +171,7 @@ function email_exists($email) {
        $_SESSION['user_image'] = $db_image;
        
 
-       redirect("/cms");
+       redirect("/cms/profile");
 
      } else {
        redirect("/cms");
