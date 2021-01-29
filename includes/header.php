@@ -9,8 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="keywords"
-    content="cikkek,Mátészalka,önkormányzati választások,2019,mátészalka, élhető mátészalka, mátészalkáért tesz, msztesz, ellenzéki összefogás, vékony miklós, gazdaság " />
+  <meta name="keywords" content="cikkek,Mátészalka,önkormányzati választások,2019,mátészalka, élhető mátészalka, mátészalkáért tesz, msztesz, ellenzéki összefogás, vékony miklós, gazdaság" />
   <meta name="description" content="Élhető Mátészalka msztesz">
   <meta name="author" content="msztesz">
   <meta name="generator" content="Jekyll v3.8.5">
