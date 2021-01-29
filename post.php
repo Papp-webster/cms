@@ -3,47 +3,6 @@
 <?php include "includes/nav.php"; ?>
 
 <?php
-if (isset($_POST['liked'])) {
-
-  $post_id = $_POST['post_id'];
-  $user_id = $_POST['user_id'];
-
-  $query = "SELECT * FROM posztok WHERE post_id=$post_id";
-  $postResult = mysqli_query($connect, $query);
-  $post = mysqli_fetch_array($postResult);
-  $likes = $post['likes'];
-
-
-
-  mysqli_query($connect, "UPDATE posztok SET likes=$likes+1 WHERE post_id=$post_id");
-
-  mysqli_query($connect, "INSERT INTO likes(user_id, post_id) VALUES($user_id, $post_id)");
-  exit();
-}
-
-if (isset($_POST['unliked'])) {
-
-  $post_id = $_POST['post_id'];
-  $user_id = $_POST['user_id'];
-
-  $query = "SELECT * FROM posztok WHERE post_id=$post_id";
-  $postResult = mysqli_query($connect, $query);
-  $post = mysqli_fetch_array($postResult);
-  $likes = $post['likes'];
-
-  //DELETE
-
-  mysqli_query($connect, "DELETE FROM likes WHERE post_id=$post_id AND user_id=$user_id");
-  //DECREMENTING LIKES
-
-  mysqli_query($connect, "UPDATE posztok SET likes=$likes-1 WHERE post_id=$post_id");
-  exit();
-}
-
-
-
-?>
-<?php
 
 if (isset($_GET['p_id'])) {
   $catch_post_id = $_GET['p_id'];

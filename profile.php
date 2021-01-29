@@ -63,7 +63,7 @@ conFirm($edit_query);
 
 echo "<div class='alert alert-success text-center mt-4'>Felhasználó változtatva!</div>";
 } else {
-  $msg['confirmPassword'] = 'A jelszó nem egyezik!';
+  $msg['confirmPassword'] = '<span class="alert alert-danger">A jelszó nem egyezik!</span>';
 }
 
 
