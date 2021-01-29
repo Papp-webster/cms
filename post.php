@@ -176,6 +176,7 @@ if (isset($_GET['p_id'])) {
                 if (isset($_POST['create_comment'])) {
 
                   $catch_post_id = $_GET['p_id'];
+                  $comment_img =  $_SESSION['user_image'];
                   $comment_author = $_SESSION['username'];
                   $comment_content = $_POST['comment_content'];
 
@@ -185,9 +186,9 @@ if (isset($_GET['p_id'])) {
 
                   if (!empty($comment_author) && !empty($comment_content)) {
 
-                    $query = "INSERT INTO comments (comment_post_id, comment_author, comment_content, comment_status,comment_date)";
+                    $query = "INSERT INTO comments (comment_post_id, comment_author, comment_img, comment_content, comment_status,comment_date)";
 
-                    $query .= "VALUES ($catch_post_id ,'{$comment_author}', '{$comment_content}', 'elfogadva','{$comment_date}')";
+                    $query .= "VALUES ($catch_post_id ,'{$comment_author}', '{$comment_img}', '{$comment_content}', 'elfogadva','{$comment_date}')";
 
                     $create_comment_query = mysqli_query($connect, $query);
 
@@ -215,6 +216,7 @@ if (isset($_GET['p_id'])) {
                 $select_comment_query = mysqli_query($connect, $query);
                 conFirm($select_comment_query);
                 while ($row = mysqli_fetch_array($select_comment_query)) {
+                  $comment_images   = $row['comment_img'];
                   $comment_date   = $row['comment_date'];
                   $comment_content = $row['comment_content'];
                   $comment_author = $row['comment_author'];
@@ -228,6 +230,7 @@ if (isset($_GET['p_id'])) {
                   <ul class="media-list comments mb-4">
                     <li class="media">
                       <div class="media-body">
+                      <img class="img-responsive rounded-circle mr-3" src="/cms/img02/<?php echo $comment_images ?>" width="40" alt="User picture">
                         <span class="text-muted pull-right">
                           <small class="text-muted"> <?php echo $comment_date; ?></small>
                         </span>
