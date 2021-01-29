@@ -72,7 +72,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
                                 <div class="row">
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="users.php">
+                            <a href="./users.php">
                                 <div class="panel-footer">
                                     <span class="pull-left">Megnéz</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

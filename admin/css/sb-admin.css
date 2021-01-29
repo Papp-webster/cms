@@ -233,6 +233,7 @@ a.numb:hover{
     background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
     background-image: -ms-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
     color: #fff;
+    border: none;
     
 }
 
@@ -241,7 +242,7 @@ a.numb:hover{
 }
 
 .panel-yellow a:hover {
-    color: #1b8b1b;
+    color: #11e211;
 }
 
 .panel-red {
@@ -254,6 +255,7 @@ a.numb:hover{
     background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
     background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
     color: #fff;
+    border: none;
     
 }
 
@@ -275,7 +277,7 @@ a.numb:hover{
     background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
     background-image: -ms-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
     color: #fff;
-    
+    border: none;
     
 }
 
@@ -297,7 +299,7 @@ a.numb:hover{
     background-image: -webkit-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
     background-image: -ms-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
     color: #fff;
-
+    border: none;
 
 }
 
