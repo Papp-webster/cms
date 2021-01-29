@@ -19,12 +19,12 @@
   <link rel="icon" type="image/gif" href="img/icon.png">
   <!-- Bootstrap Core CSS -->
   <link href="/cms/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/cms/css/custom.css" rel="stylesheet">
+  <link href="/cms/css/custom.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Custom CSS -->
   <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/cms/css/login.css">
+  <link rel="stylesheet" type="text/css" href="/cms/css/login.min.css">
 
 
 </head>

@@ -35,9 +35,9 @@ if (!isset($_SESSION['user_role'])) {
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.min.css" rel="stylesheet">
      <!-- LOADER -->
-    <link href="css/loader.css" rel="stylesheet">
+    <link href="css/loader.min.css" rel="stylesheet">
      <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 

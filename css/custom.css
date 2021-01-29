@@ -292,7 +292,7 @@ text-decoration: none;
 }
 
 .post-meta li a:hover, .post-meta li a:focus {
-  color: #3c70e8;
+  color: #ee4266;
 }
 
 .post-meta li:after {
@@ -313,7 +313,7 @@ text-decoration: none;
 }
 
 .post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
-  color: #3c70e8;
+  color:#ee4266;
 }
 
 .post.post-thumb .post-meta li {
@@ -326,7 +326,7 @@ text-decoration: none;
 }
 
 .post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
-  color: #3c70e8;
+  color:#ee4266;
 }
 
 .post {
@@ -363,7 +363,11 @@ text-decoration: none;
 
 
 
-.post .post-title.title-lg {
+.post .post-title.title-lg a{
+  border: 1px solid #3c70e8;
+  border-radius: 10px;
+  padding: 2px 5px 3px 5px;
+  background: #3c70e8;
   font-size: 25.629px;
 }
 
