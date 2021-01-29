@@ -99,11 +99,11 @@ $version = 1;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="/cms/js/bootstrap.min.js"></script>
-<script src="/cms/js/pageloader.js?data=<?php echo $version; ?>"></script>
-<script src="/cms/js/swiped-events.js?data=<?php echo $version; ?>"></script>
-<script src="/cms/js/form.js?data=<?php echo $version; ?>"></script>
+<script src="/cms/js/pageloader.min.js?data=<?php echo $version; ?>"></script>
+<script src="/cms/js/swiped-events.min.js?data=<?php echo $version; ?>"></script>
+<script src="/cms/js/form.min.js?data=<?php echo $version; ?>"></script>
 <script src="/cms/js/jqBootstrapValidation.min.js?data=<?php echo $version; ?>"></script>
-<script src="/cms/js/contact.js?data=<?php echo $version; ?>"></script>
+<script src="/cms/js/contact.min.js?data=<?php echo $version; ?>"></script>
 
 </body>
 

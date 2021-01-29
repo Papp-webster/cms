@@ -19,7 +19,7 @@
 
     <?php
 
-    $query = "SELECT * FROM users";
+    $query = "SELECT * FROM users LIMIT 40";
     $select_users = mysqli_query($connect, $query);
 
     while ($row = mysqli_fetch_assoc($select_users)) {
