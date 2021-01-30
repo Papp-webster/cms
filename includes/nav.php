@@ -9,6 +9,9 @@
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div class="order-lg-2 d-lg-flex w-100 sidebar pb-3 pb-lg-0">
       <ul class="nav navbar-nav mr-lg-auto mb-3 mb-lg-0">
+      <li>
+          <a class="nav-link px-3 px-lg-2" href="/cms">Home</a>
+        </li>
         <?php
 
         $query = "SELECT * FROM kategoriak";
