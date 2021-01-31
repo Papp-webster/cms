@@ -47,7 +47,7 @@ echo "<p class='bg-success'>Sikeresen létrejött a poszt!.<a href='../post.php?
 
   <div class="form-group">
     <label for="category">Kategóriák:</label>
-    <select name="post_category" id="post_category">
+    <select class="custom-select" name="post_category" id="post_category">
       <?php
       $query = "SELECT * FROM kategoriak";
       $select_categories = mysqli_query($connect, $query);
@@ -66,7 +66,7 @@ echo "<p class='bg-success'>Sikeresen létrejött a poszt!.<a href='../post.php?
   </div>
   <div class="form-group">
     <label for="category">Felhasználók:</label>
-    <select name="post_user" id="post_category">
+    <select class="custom-select" name="post_user" id="post_category">
 
       <?php
       $users_query = "SELECT * FROM users";
@@ -95,7 +95,7 @@ echo "<p class='bg-success'>Sikeresen létrejött a poszt!.<a href='../post.php?
 
 
   <div class="form-group">
-    <select name="post_status" id="">
+    <select class="custom-select" name="post_status" id="">
       <option>Státusz:</option>
         <option value="publikált">publikált</option>
         <option value="draft">draft</option>
