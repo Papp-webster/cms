@@ -92,7 +92,7 @@ echo "<p class='bg-success'>Sikeresen megváltozott a poszt!. <a href='../post.p
 
   <div class="form-group">
     <label for="category">Felhasználók:</label>
-    <select name="post_user" id="post_category">
+    <select class="custom-select" name="post_user" id="post_category">
 
       <?php
       $users_query = "SELECT * FROM users";
@@ -112,7 +112,7 @@ echo "<p class='bg-success'>Sikeresen megváltozott a poszt!. <a href='../post.p
 
   <div class="form-group">
     <label for="category">Kategóriák:</label>
-    <select name="post_category" id="post_category">
+    <select class="custom-select" name="post_category" id="post_category">
       <?php
       $query = "SELECT * FROM kategoriak";
       $select_categories = mysqli_query($connect, $query);
@@ -142,7 +142,7 @@ echo "<p class='bg-success'>Sikeresen megváltozott a poszt!. <a href='../post.p
   </div>
 
 <div class="form-group">
- <select class="" name="post_status">
+ <select class="custom-select" name="post_status">
    <option value='<?php echo $post_status; ?>'><?php echo $post_status; ?></option>
    <?php
   if ($post_status == 'publikált') {

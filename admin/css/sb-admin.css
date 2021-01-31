@@ -311,3 +311,15 @@ a.numb:hover{
     color: #4256ac;
 }
 
+
+
+.custom-select {
+    background: #3f5efb;
+    color: #fff;
+    padding: 4px 5px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
