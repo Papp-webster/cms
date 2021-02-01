@@ -244,6 +244,11 @@ text-decoration: none;
 
 }
 
+.title-bg {
+  background: #3c70e8;
+ padding: 5px;
+}
+
 .section-title {
   position: relative;
   top: 15px;
