@@ -319,6 +319,7 @@ text-decoration: none;
 
 .post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
   color:#ee4266;
+  transition: .3s all;
 }
 
 .post.post-thumb .post-meta li {
@@ -332,6 +333,7 @@ text-decoration: none;
 
 .post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
   color:#ee4266;
+  
 }
 
 .post {
@@ -394,6 +396,7 @@ text-decoration: none;
 
 .post-meta li a:hover, .post-meta li a:focus {
   color: #ee4266;
+  transition: .3s all;
 }
 
 .post-meta li:after {
@@ -478,6 +481,7 @@ padding-top: 8px;
 
 .page-header .post-meta li a:hover, .page-header .post-meta li a:focus {
   color: #ee4266;
+  transition: .3s all;
 }
 .post-share{
   padding-top: 20px;
