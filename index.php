@@ -15,15 +15,15 @@
     $query = "SELECT * FROM posztok  ORDER BY post_id DESC LIMIT 3";
     $select_all_post = mysqli_query($connect, $query);
     while ($row = mysqli_fetch_assoc($select_all_post)) {
-      $post_id = $row['post_id'];
-      $post_cim = $row['post_cim'];
-      $post_user = $row['post_user'];
-      $post_author = $row['post_author'];
-      $post_date = $row['post_date'];
-      $post_img = $row['post_img'];
+      $post_id = escape($row['post_id']);
+      $post_cim = escape($row['post_cim']);
+      $post_user = escape($row['post_user']);
+      $post_author = escape($row['post_author']);
+      $post_date = escape($row['post_date']);
+      $post_img = escape($row['post_img']);
       $post_tartalom = substr($row['post_tartalom'], 0, 200);
-      $post_status = $row['post_status'];
-      $post_views = $row['post_views'];
+      $post_status = escape($row['post_status']);
+      $post_views = escape($row['post_views']);
 
       if ($post_status !== 'publikált') {
         echo "<h1 class='text-center'>Jelenleg nincs POSZT!</h1>";
@@ -49,7 +49,7 @@
 
                     <h3 class="post-title title-lg"><a href="/cms/post/<?php echo $post_id; ?>"><?php echo $post_cim ?></a></h3>
                     <ul class="post-meta">
-                      <li><?php if (!empty($post_user)) : ?>
+                        <li><?php if (!empty($post_user)) : ?>
                           <a href="/cms/user_post.php?user=<?php echo $post_user; ?>&p_id=<?php echo $post_id; ?>" target="_blank"><?php echo $post_user ?></a>
                         <?php elseif (!empty($post_author)) : ?>
                           <a href="/cms/author_post.php?author=<?php echo $post_author; ?>&p_id=<?php echo $post_id; ?>" target="_blank"><?php echo $post_author ?></a>
