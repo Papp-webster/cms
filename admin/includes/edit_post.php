@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
   $post_author = $_POST['post_author'];
   $post_user = $_POST['post_user'];
   $post_cim = $_POST['post_cim'];
+  //$user_img = $_SESSION['user_image'];
   $post_cat_id = $_POST['post_category'];
   $post_status = $_POST['post_status'];
   $location = "../img";
@@ -58,9 +59,9 @@ if (isset($_POST['submit'])) {
   $query = "UPDATE posztok SET ";
   $query .="post_cim ='{$post_cim}', ";
   $query .="post_cat_id ='{$post_cat_id}', ";
-  $query .="post_date = '{$post_date}', ";
   $query .="post_user = '{$post_user}', ";
   $query .="post_author ='{$post_author}', ";
+  //$query .="user_img ='{$user_img}', ";
   $query .="post_status ='{$post_status}', ";
   $query .="post_tags ='{$post_tags}', ";
   $query .="post_tartalom ='{$post_tartalom}', ";
