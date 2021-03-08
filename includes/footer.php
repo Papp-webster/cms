@@ -101,14 +101,14 @@ $version = 1;
 <script src="js/bootstrap.min.js"></script>
 <!-- carousel -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"></script>
-<script src="js/carousel.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/pageloader.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/swiped-events.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/form.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/jqBootstrapValidation.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/contact.min.js?data=<?php echo $version; ?>"></script>
-<script src="js/jquery.cookieMessage.min.js?data=<?php echo $version; ?>"></script>
-<script type="text/javascript">
+<script src="cms/js/carousel.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/pageloader.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/swiped-events.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/form.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/jqBootstrapValidation.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/contact.min.js?data=<?php echo $version; ?>"></script>
+<script src="cms/js/jquery.cookieMessage.min.js?data=<?php echo $version; ?>"></script>
+<script type="cms/text/javascript">
 
 $.cookieMessage({
     'mainMessage': 'Az Élhető Mátészalka nevű weboldalon Cookie-kat használunk. A korlátlan szolgáltatás garantálásához fogadd el a cookie-k használatát.',
