@@ -1,8 +1,7 @@
 {
     "name": "lezxb/cms",
     "require": {
-        "phpmailer/phpmailer": "^6.1",
-        "facebook/graph-sdk": "^5.7"
+        "phpmailer/phpmailer": "^6.1"
     },
 
      "autoload": {
