@@ -191,11 +191,13 @@ function conFirm($result) {
   if (!$result) {
     die('Az adatbázis kapcsolat hibás: ' . mysqli_error($connect));
 }
-
-
-
-
 }
+
+function logMessage($level, $message, $file = '../log.txt', $line = __LINE__) {
+  $log = date('Y-m-d H:i:s') . " - {$level} - {$message} - {$line} ";
+  file_put_contents($file, $log . PHP_EOL, FILE_APPEND);
+}
+
 //kategóriák
 function insert_categories(){
 
@@ -207,11 +209,13 @@ function insert_categories(){
     if($cat_cim == "" || empty($cat_cim)) {
       echo "Ez nem lehet üres!";
     } else {
-        $stmt = mysqli_prepare($connect, "INSERT INTO kategoriak(cat_cim) VALUES(?) ");
-        mysqli_stmt_bind_param($stmt, 's', $cat_cim);
-        mysqli_stmt_execute($stmt);
-
-        conFirm($stmt);
+        if($stmt = mysqli_prepare($connect, "INSERT INTO kategoriak(cat_cim) VALUES(?) ")) {
+          mysqli_stmt_bind_param($stmt, "s", $cat_cim);
+          mysqli_stmt_execute($stmt);
+          mysqli_stmt_close($stmt);
+        } else {
+          conFirm($stmt);
+        }
     }
  mysqli_stmt_close($stmt);
   }
